@@ -11,28 +11,1428 @@
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
-    <script type="module" src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore.js"></script>
-    <script type="module" src="C:\Users\dscyr\Downloads\logistico-master\logistico-master\contact-form.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.8.0/firebase-app-compat.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.8.0/firebase-firestore-compat.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/gijgo.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/quote-styles.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-    <script type="module" src="C:\Users\dscyr\Downloads\logistico-master\logistico-master\contact-form.js"></script>
     <script src="quote-button.js"></script>
-    <script type="module" src="contact-form.js"></script>
+    <style>
+        /* Dropdown Navigation Styles */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        .nav-dropdown-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 15px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 4px 0;
+            transition: 0.4s;
+            display: block;
+        }
+
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-dropdown-content ul li {
+            padding: 8px 20px;
+        }
+
+        .nav-dropdown-content ul li a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            color: #FF3414;
+        }
+
+        /* Adjust header right section layout */
+        .header_right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .book_btn {
+            margin-right: 0;
+        }
+    </style>
+    <style>
+        /* Enhanced Text Rotator Styles */
+        .text-rotator-section {
+            text-align: center;
+            padding: 40px 0 30px 0;
+            margin: 40px 0 30px 0;
+            background: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Slider Area Bottom Spacing */
+        .slider_area {
+            margin-bottom: 30px;
+        }
+
+        /* Add a subtle background effect */
+        .text-rotator-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(247, 247, 247, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+        }
+
+        .text-rotator-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ld-fh-element {
+            font-size: 3em;
+            font-weight: 700;
+            color: #16133e;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .txt-rotate-keywords {
+            display: inline-block;
+            position: relative;
+            color: #FF3414;
+            min-height: 60px;
+            min-width: 300px;
+            vertical-align: middle;
+        }
+
+        .txt-rotate-keyword {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+        }
+
+        .txt-rotate-keyword.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .txt-rotate-keyword.lqd-keyword-slide-out {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition-duration: 0.4s;
+        }
+
+        .txt-rotate-keyword.is-next {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .txt-rotate-keyword span {
+            display: block;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* Add highlight effect */
+        .lqd-highlight-classic {
+            position: relative;
+            padding: 0 0.1em;
+        }
+
+        .lqd-highlight-grow-left::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0.4em;
+            position: absolute;
+            bottom: -0.1em;
+            left: -0.1em;
+            right: -0.1em;
+            background: rgba(255, 52, 20, 0.15);
+            z-index: -1;
+            animation: highlightGrow 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes highlightGrow {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: calc(100% + 0.2em);
+            }
+        }
+    </style>
+
+    <style>
+        /* Text Rotator Styles */
+        .text-rotator-section {
+            text-align: center;
+            padding: 40px 0 30px 0;
+            background: #fff;
+        }
+
+        .ld-fh-element {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #16133e;
+            margin-bottom: 30px;
+        }
+
+        .txt-rotate-keywords {
+            display: inline-block;
+            position: relative;
+            color: #FF3414;
+        }
+
+        .txt-rotate-keyword {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .txt-rotate-keyword.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .txt-rotate-keyword.lqd-keyword-slide-out {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .txt-rotate-keyword.is-next {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+    <style>
+        /* Remove gap between header and banner */
+        .header-area {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .slider_area {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        /* Ensure header is above slider */
+        .header-area {
+            position: relative;
+            z-index: 100;
+        }
+
+        .slider_area {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Remove any potential spacing from header bottom border */
+        .header_bottom_border {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+    </style>
+    <style>
+        /* Responsive Contact Form Styles */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .form-contact {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #FF3414;
+            box-shadow: 0 0 0 0.2rem rgba(255, 52, 20, 0.25);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+        }
+
+        .button-contactForm {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: auto;
+        }
+
+        .button-contactForm:hover {
+            background: #e62d0e;
+            color: #fff;
+        }
+
+        .contact-info {
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .contact-info:hover {
+            background: #f8f9fa;
+        }
+
+        .contact-info__icon {
+            margin-right: 15px;
+            font-size: 24px;
+            color: #FF3414;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 991px) {
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .col-lg-3.offset-lg-1 {
+                margin-top: 40px;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .contact-section {
+                padding: 50px 0;
+            }
+
+            .form-contact {
+                padding: 20px;
+            }
+
+            .contact-title {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+
+            .col-sm-6 {
+                margin-bottom: 15px;
+            }
+
+            .button-contactForm {
+                width: 100%;
+            }
+
+            .contact-info {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .contact-title {
+                font-size: 1.5rem;
+            }
+
+            textarea.form-control {
+                min-height: 120px;
+            }
+        }
+    </style>
+    <style>
+        /* Floating Buttons Styles */
+        .floating-contact,
+        .floating-whatsapp,
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #FF3414;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-contact {
+            bottom: 160px;
+        }
+
+        .floating-whatsapp {
+            bottom: 90px;
+        }
+
+        .back-to-top {
+            bottom: 20px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .floating-contact:hover,
+        .floating-whatsapp:hover,
+        .back-to-top:hover {
+            background-color: #e62d0e;
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .floating-contact i,
+        .floating-whatsapp i,
+        .back-to-top i {
+            font-size: 20px;
+            line-height: 50px;
+        }
+
+        @media (min-width: 1024px) {
+
+            /* Adjust the width as per your requirement */
+            #nav1 {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+        /* Updated Contact Info Styles */
+        .media.contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .contact-info-item i {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            background: #FF3414;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(255, 52, 20, 0.2);
+        }
+
+        .media-body {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            min-width: 280px;
+        }
+
+        .media-body h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c234d;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .media-body p {
+            margin: 0;
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 991px) {
+            .media.contact-info {
+                margin-top: 40px;
+                padding: 30px;
+                gap: 30px;
+            }
+
+            .contact-info-item {
+                padding-left: 70px;
+            }
+
+            .contact-info-item i {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .media.contact-info {
+                padding: 20px;
+                gap: 25px;
+            }
+
+            .contact-info-item {
+                padding-left: 60px;
+            }
+
+            .contact-info-item i {
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                font-size: 18px;
+            }
+
+            .media-body {
+                padding: 15px 20px;
+                min-width: auto;
+            }
+
+            .media-body h3 {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .media-body p {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <style>
+        .modern-quote-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #FF3B30, #FF6347);
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
+            border: none;
+            min-width: 220px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-quote-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.6s ease;
+        }
+
+        .modern-quote-btn:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modern-quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 99, 71, 0.4);
+        }
+
+        .btn-text {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .btn-icon {
+            font-size: 20px;
+            z-index: 1;
+            animation: icon-bounce 1s infinite alternate;
+        }
+
+        @keyframes icon-bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-3px);
+            }
+        }
+    </style>
+    <style>
+        /* Header Styling */
+        .header-area {
+            padding: 8px 0;
+            background: #fff;
+            border-bottom: 1px solid #f6f6f6;
+        }
+
+        .header_bottom_border {
+            padding: 15px 0;
+            border-top: 1px solid #f6f6f6;
+        }
+
+        .nav-dropdown-btn {
+            padding: 2px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 18px;
+            height: 2px;
+            margin: 2px 0;
+            background: #2E2E2E;
+            border-radius: 2px;
+        }
+    </style>
+    <style>
+        .header_right {
+            display: flex;
+            gap: 20px;
+        }
+
+        .short_contact_list ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .short_contact_list ul li {
+            list-style: none;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            margin-left: 15px;
+        }
+
+        .nav-dropdown-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 25px;
+            height: 3px;
+            background: #2E2E2E;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-content {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: #fff;
+            min-width: 200px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-dropdown-content ul li a {
+            display: block;
+            padding: 8px 20px;
+            color: #2E2E2E;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            color: #FF3414;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+    </style>
+    <style>
+        .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+        }
+
+        .line {
+            fill: none;
+            stroke: #2E2E2E;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 3;
+        }
+
+        .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+
+        .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 3;
+        }
+
+        .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+    </style>
+    <style>
+        /* Mobile Menu Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 5px 0;
+            background: #333;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 991px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background: #fff;
+                padding: 80px 20px 20px;
+                transition: 0.3s;
+                box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .nav-menu a {
+                color: #333;
+                font-size: 16px;
+                display: block;
+                padding: 10px;
+            }
+
+            .menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+    </style>
+    <style>
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        .nav-dropdown-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-dropdown-btn svg {
+            fill: none;
+            stroke: #000;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .nav-dropdown-content {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: #fff;
+            width: 160px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 0;
+            margin-top: 10px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-dropdown-content ul li a {
+            display: block;
+            padding: 8px 20px;
+            height: 40px;
+            line-height: 24px;
+            color: #2E2E2E;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            opacity: 0;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            display: block;
+        }
+
+        .freight-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            background: #fff;
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 1000px;
+            width: 95%;
+            z-index: 10000;
+            opacity: 0;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active .freight-modal {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #FF3414;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .freight-options {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .freight-option {
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
+            background: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: #333;
+            border: 2px solid #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .freight-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FF3414, #ff6b4a);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .freight-option:hover {
+            transform: translateY(-10px);
+            border-color: #FF3414;
+            box-shadow: 0 20px 40px rgba(255, 52, 20, 0.15);
+        }
+
+        .freight-option:hover::before {
+            opacity: 0.03;
+        }
+
+        .freight-option>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .freight-option i {
+            font-size: 3.5em;
+            color: #FF3414;
+            margin-bottom: 25px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .freight-option:hover i {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .freight-option h4 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .freight-option p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .freight-option .btn-text {
+            color: #FF3414;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(255, 52, 20, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .freight-option:hover .btn-text {
+            background: #FF3414;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(255, 52, 20, 0.2);
+        }
+
+        .freight-option:hover .btn-text i {
+            transform: translateX(5px);
+        }
+
+        .freight-modal h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .freight-modal>.text-center>p {
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .freight-modal {
+                padding: 30px 20px;
+            }
+
+            .freight-option {
+                min-width: 100%;
+            }
+
+            .freight-modal h2 {
+                font-size: 24px;
+            }
+
+            .freight-modal>.text-center>p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <style>
+        /* Mobile responsive contact button */
+        .book_btn {
+            margin-right: 0;
+            display: block !important;
+            /* Override Bootstrap d-none class */
+        }
+
+        .modern-quote-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        @media (max-width: 991px) {
+            .book_btn {
+                order: -1;
+                /* Move button to start on mobile */
+            }
+
+            .modern-quote-btn {
+                padding: 12px 24px;
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .modern-quote-btn {
+                padding: 10px 15px;
+                min-width: auto;
+            }
+
+            .btn-text {
+                display: none;
+                /* Hide text on very small screens */
+            }
+
+            .btn-icon {
+                margin: 0;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <style>
+        /* Dropdown Navigation Styles */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-dropdown-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 15px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 4px 0;
+            transition: 0.4s;
+            display: block;
+        }
+
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-dropdown-content ul li {
+            padding: 8px 20px;
+        }
+
+        .nav-dropdown-content ul li a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            color: #FF3414;
+        }
+
+        /* Adjust header right section layout */
+        .header_right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .book_btn {
+            margin-right: 0;
+        }
+    </style>
+    <style>
+        /* Mobile Quote Button Styles */
+        .book_btn {
+            display: block !important;
+            margin: 0;
+        }
+
+        .modern-quote-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px 24px;
+            min-width: auto;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 991px) {
+            .header_right {
+                justify-content: flex-end;
+                gap: 15px;
+            }
+
+            .book_btn {
+                order: -1;
+            }
+
+            .modern-quote-btn {
+                padding: 8px 16px;
+            }
+
+            .btn-text {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .modern-quote-btn {
+                padding: 8px;
+                min-width: 0;
+            }
+
+            .btn-text {
+                display: none;
+            }
+
+            .btn-icon {
+                margin: 0;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <style>
+        /* Mobile Quote Button Styles */
+        @media (max-width: 991px) {
+            .header-top_area.d-none.d-lg-block {
+                display: block !important;
+            }
+            
+            .book_btn {
+                display: block !important;
+            }
+            
+            .modern-quote-btn {
+                padding: 8px 16px;
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .modern-quote-btn {
+                padding: 8px;
+            }
+            
+            .btn-text {
+                display: none;
+            }
+            
+            .btn-icon {
+                margin: 0;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <style>
+        /* Header Layout Fixes */
+        .header-area {
+            padding: 15px 0;
+        }
+
+        .header-top_area {
+            display: block !important;
+        }
+
+        .header-bottom_area {
+            display: none !important;
+        }
+
+        @media (max-width: 991px) {
+            .header-area {
+                padding: 10px 0;
+            }
+
+            .logo {
+                padding: 5px 0;
+            }
+
+            .logo img {
+                max-height: 50px;
+                width: auto;
+            }
+
+            .header_right {
+                padding: 5px 0;
+            }
+        }
+    </style>
+    <style>
+        /* Header Mobile Fixes */
+        @media (max-width: 991px) {
+            .header-area {
+                padding: 10px 0;
+            }
+
+            .logo {
+                padding: 0;
+            }
+
+            .logo img {
+                max-height: 40px;
+                width: auto;
+            }
+
+            .header_right {
+                padding: 0;
+                align-items: center;
+            }
+
+            .nav-dropdown {
+                margin-left: 0;
+            }
+
+            .book_btn {
+                display: none !important;
+            }
+
+            /* Adjust container for mobile */
+            .row.align-items-center {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .col-xl-4.col-lg-4 {
+                width: auto;
+                flex: 0 0 auto;
+            }
+
+            .col-xl-8.col-md-8 {
+                width: auto;
+                flex: 0 0 auto;
+            }
+        }
+
+        /* Additional fixes for very small screens */
+        @media (max-width: 576px) {
+            .header-area {
+                padding: 8px 0;
+            }
+
+            .logo img {
+                max-height: 35px;
+            }
+
+            .nav-dropdown {
+                margin-left: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -42,77 +1442,59 @@
 
     <!-- header-start -->
     <header>
-        <div class="header-area ">
-            <div class="header-top_area d-none d-lg-block">
+        <div class="header-area">
+            <div class="header-top_area">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-4 col-lg-4">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="img/logo.svg" loading="lazy" alt="Logo">
                                 </a>
                             </div>
                         </div>
                         <div class="col-xl-8 col-md-8">
-                            <div class="header_right d-flex align-items-center">
+                            <div class="header_right d-flex">
                                 <div class="short_contact_list">
                                     <ul>
-                                        <li><a href="#"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li>
-                                        <li><a href="#"> <i class="fa fa-phone"></i> +91 9167524332</a></li>
+                                        <!-- <li><a href="#"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li> -->
+                                        <!-- <li><a href="#"> <i class="fa fa-phone"></i>+91 9167524332 </a></li> -->
                                     </ul>
                                 </div>
 
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="boxed-btn3-line" href="javascript:void(0);">Get Free Quote</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-12 d-block d-lg-none">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/logo.png" alt="">
+                                    <a class="modern-quote-btn" href="#" onclick="openModal(event)">
+                                        <i class="fas fa-calculator btn-icon"></i>
+                                        <span class="btn-text">Assured QUOTE</span>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="col-xl-9 col-lg-9">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a href="index.html">home</a></li>
+
+                                <!-- Add new menu button -->
+                                <div class="nav-dropdown">
+                                    <button class="menu"
+                                        onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+                                        aria-label="Main Menu">
+                                        <svg width="30" height="30" viewBox="0 0 100 100">
+                                            <path class="line line1"
+                                                d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                            <path class="line line2" d="M 20,50 H 80" />
+                                            <path class="line line3"
+                                                d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                        </svg>
+                                    </button>
+                                    <div class="nav-dropdown-content" id="navDropdown">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="About.html">About</a></li>
                                             <li><a href="service.html">Services</a></li>
-                                            <li><a href="About.html">about</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="service_details.html">service details</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="service_details.html">Service Details</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment justify-content-end">
-                                    <div class="search_btn">
-                                        <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
-                                            <i class="ti-search"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -135,7 +1517,6 @@
     <!-- ================ contact section start ================= -->
     <section class="contact-section">
         <div class="container">
-            <div class="d-none d-sm-block mb-5 pb-4">
             <div class="row">
                 <div class="col-12">
                     <h2 class="contact-title">Get in Touch</h2>
@@ -143,41 +1524,31 @@
                 <div class="col-lg-8">
                     <form class="form-contact contact_form" id="contactForm" novalidate="novalidate">
                         <div class="row">
-                            <!-- Hidden input for Web3Forms access key -->
-                            <input type="hidden" name="access_key" value="582fcb7f-c6cc-45ec-9a18-e4b3ca7f9a7d">
-                            
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"
-                                        placeholder="Enter Message" required></textarea>
+                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder="Enter Message"></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="name" id="name" type="text"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
-                                        placeholder="Enter your name" required>
+                                    <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="email" id="email" type="email"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" 
-                                        placeholder="Email" required>
+                                    <input class="form-control" name="email" id="email" type="email" placeholder="Enter email address">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="subject" id="subject" type="text"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
-                                        placeholder="Enter Subject" required>
+                                    <input class="form-control" name="subject" id="subject" type="text" placeholder="Enter Subject">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                            <button type="submit" id="submitButton" class="button button-contactForm boxed-btn">Send Message</button>
                         </div>
+                        <div id="formMessage"></div>
                     </form>
                     <!-- Loading spinner -->
                     <div class="position-fixed top-50 start-50 translate-middle d-none" id="loadingSpinner">
@@ -185,33 +1556,29 @@
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     </div>
-
                 </div>
-                <div class="col-lg-3 offset-lg-1">
+                <div class="col-lg-4">
                     <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-home"></i></span>
-                        <div class="media-body">
-                            <h3>Andheri East,
-                                Mumbai</h3>
-                            <p>Gala No. A5,
-                                1st Floor,
-                                Raj Industrial Estate,
-                                Military Road,
-                                Marol, 400059</p>
+                        <div class="contact-info-item">
+                            <i class="fa fa-home"></i>
+                            <div class="media-body">
+                                <h3>Andheri East, Mumbai</h3>
+                                <p>A5, 1st Floor, Raj Industrial Estate, Military Road, Marol, 400059</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                        <div class="media-body">
-                            <h3>+91 9167524332</h3>
-                            <p>Mon to Fri 9am to 6pm</p>
+                        <div class="contact-info-item">
+                            <i class="fa fa-phone"></i>
+                            <div class="media-body">
+                                <h3>+91 9167524332</h3>
+                                <p>24 x 7 Servies </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-email"></i></span>
-                        <div class="media-body">
-                            <h3>info@assurancefreight.in</h3>
-                            <p>Send us your query anytime!</p>
+                        <div class="contact-info-item">
+                            <i class="fa fa-envelope"></i>
+                            <div class="media-body">
+                                <h3>info@assurancefreight.in</h3>
+                                <p>Send us your query anytime!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -236,7 +1603,7 @@
                                 <a href="#">info@assurancefreight.in</a> <br>
                                 +91 9167524332 <br>
                                 Marol, Andheri East,
-                                Mumbai 
+                                Mumbai
                             </p>
                             <div class="socail_links">
                                 <ul>
@@ -298,7 +1665,8 @@
                                 <input type="email" name="email" placeholder="Enter your mail" required>
                                 <button type="submit">Subscribe</button>
                             </form>
-                            <p class="newsletter_text">Stay connected with us and receive latest updates about our services and special offers.</p>
+                            <p class="newsletter_text">Stay connected with us and receive latest updates about our
+                                services and special offers.</p>
                         </div>
                     </div>
                 </div>
@@ -317,6 +1685,29 @@
                     <button type="submit">search</button>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/+919167524332" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" onclick="openModal(event)" class="floating-contact">
+        <i class="fa fa-comments"></i>
+    </a>
+
+    <a href="#" class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <!-- Selection Modal -->
+    <div class="modal-overlay" id="selectionModal">
+        <div class="modal-content">
+            <h2>Select an Option</h2>
+            <button onclick="navigateTo('about.html')">About</button>
+            <button onclick="navigateTo('service.html')">Service</button>
+            <button onclick="navigateTo('service_details.html')">Service Details</button>
+            <button onclick="navigateTo('contact.html')">Contact</button>
+            <button onclick="closeModal()">Close</button>
         </div>
     </div>
     <!-- JS here -->
@@ -338,43 +1729,170 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/gijgo.min.js"></script>
+    <script src="js/slick.min.js"></script>
 
-    <!--contact js-->
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
+    <!-- Add jQuery Validation Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 
+    <!-- Contact Form JavaScript -->
     <script>
-        const form = document.getElementById('contactForm');
-        
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(form);
-            
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Thank you! Your message has been sent successfully.');
-                    form.reset();
-                } else {
-                    alert('Oops! Something went wrong. Please try again.');
+        $(document).ready(function () {
+            // Simple form handling without validation plugin
+            $("#contactForm").on('submit', function (e) {
+                e.preventDefault();
+
+                // Get form data
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var subject = $("#subject").val();
+                var message = $("#message").val();
+
+                // Basic validation
+                if (!name || !email || !subject || !message) {
+                    $("#formMessage").html('<div class="alert alert-danger">Please fill in all fields.</div>');
+                    return false;
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
+
+                // Show loading state
+                $("#submitButton").prop("disabled", true).html("Sending...");
+
+                // Simulate form submission (replace with your actual form submission logic)
+                setTimeout(function () {
+                    // Reset form
+                    $("#contactForm")[0].reset();
+
+                    // Show success message
+                    $("#submitButton").prop("disabled", false).html("Send Message");
+                    $("#formMessage").html('<div class="alert alert-success">Thank you! Your message has been sent successfully.</div>');
+
+                    // Clear success message after 5 seconds
+                    setTimeout(function () {
+                        $("#formMessage").html('');
+                    }, 5000);
+                }, 1500);
             });
         });
-        </script>
+    </script>
 
-    <script src="js/main.js"></script>
+    <!-- Modal -->
+    <div class="modal-overlay" id="freightModal">
+        <div class="freight-modal">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="text-center">
+                <h2>Choose Your Freight Service</h2>
+                <p>Select the type of freight service that best suits your needs</p>
+            </div>
+            <div class="freight-options">
+                <a href="air-freight.html" class="freight-option">
+                    <i class="fas fa-plane"></i>
+                    <h4>Air Freight</h4>
+                    <p>Fast & Reliable Air Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="ocean-freight.html" class="freight-option">
+                    <i class="fas fa-ship"></i>
+                    <h4>Ocean Freight</h4>
+                    <p>Cost-Effective Sea Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="road-freight.html" class="freight-option">
+                    <i class="fas fa-truck"></i>
+                    <h4>Road Freight</h4>
+                    <p>Flexible Ground Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(event) {
+            event.preventDefault();
+            document.getElementById('freightModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('freightModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('freightModal').addEventListener('click', function (event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            const body = document.body;
+
+            menuBtn.addEventListener('click', function () {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                    menuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.style.overflow = '';
+                }
+            });
+
+            // Close menu when clicking on a link
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.style.overflow = '';
+                });
+            });
+
+            // Prevent menu from closing when clicking inside
+            navMenu.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    <!-- Initialize other plugins -->
+    <script>
+        $(document).ready(function () {
+            // Initialize datepicker if present
+            if ($('#datepicker').length) {
+                $('#datepicker').datepicker({
+                    iconsLibrary: 'fontawesome',
+                    icons: {
+                        rightIcon: '<span class="fa fa-calendar"></span>'
+                    }
+                });
+            }
+
+            // Initialize nice select if present
+            if ($('select').length) {
+                $('select').niceSelect();
+            }
+        });
+    </script>
+
     <script>
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',
@@ -394,8 +1912,311 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
     <!-- Your JavaScript -->
-    <script src="contact-form.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Menu functionality
+            const menuBtn = document.querySelector('.nav-dropdown-btn');
+            const navDropdown = document.querySelector('.nav-dropdown-content');
+            let isMenuOpen = false;
 
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                navDropdown.classList.toggle('show');
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.nav-dropdown') && isMenuOpen) {
+                    isMenuOpen = false;
+                    navDropdown.classList.remove('show');
+                }
+            });
+
+            if (menuBtn && navDropdown) {
+                menuBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+            }
+        });
+    </script>
+
+    <script>
+        let isMenuOpen = false;
+
+        function toggleMenu(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const dropdown = document.getElementById('navDropdown');
+            isMenuOpen = !isMenuOpen;
+            dropdown.classList.toggle('show');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (e) {
+            const dropdown = document.getElementById('navDropdown');
+            const button = document.querySelector('.nav-dropdown-btn');
+            if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+                isMenuOpen = false;
+            }
+        });
+    </script>
+
+    <script>
+        function openModal() {
+            document.getElementById('selectionModal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('selectionModal').style.display = 'none';
+        }
+        function navigateTo(page) {
+            closeModal();
+            window.location.href = page;
+        }
+    </script>
+    <div class="modal-overlay" id="freightModal">
+        <div class="freight-modal">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="text-center">
+                <h2>Choose Your Freight Service</h2>
+                <p>Select the type of freight service that best suits your needs</p>
+            </div>
+            <div class="freight-options">
+                <a href="air-freight.html" class="freight-option">
+                    <i class="fas fa-plane"></i>
+                    <h4>Air Freight</h4>
+                    <p>Fast & Reliable Air Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="ocean-freight.html" class="freight-option">
+                    <i class="fas fa-ship"></i>
+                    <h4>Ocean Freight</h4>
+                    <p>Cost-Effective Sea Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="road-freight.html" class="freight-option">
+                    <i class="fas fa-truck"></i>
+                    <h4>Road Freight</h4>
+                    <p>Flexible Ground Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openModal(event) {
+            event.preventDefault();
+            document.getElementById('freightModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('freightModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('freightModal').addEventListener('click', function (event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+    <!-- Back to Top Button functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTop = document.querySelector('.back-to-top');
+
+            // Show button when scrolling down
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+
+            // Smooth scroll to top when clicked
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Menu button functionality
+            const menuBtn = document.querySelector('.menu');
+            const navDropdown = document.querySelector('.nav-dropdown-content');
+
+            if (menuBtn && navDropdown) {
+                menuBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    this.classList.toggle('opened');
+                    navDropdown.classList.toggle('show');
+                    document.body.style.overflow = navDropdown.classList.contains('show') ? 'hidden' : '';
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!menuBtn.contains(e.target) && !navDropdown.contains(e.target)) {
+                        menuBtn.classList.remove('opened');
+                        navDropdown.classList.remove('show');
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                // Close menu when clicking on a link
+                const navLinks = navDropdown.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menuBtn.classList.remove('opened');
+                        navDropdown.classList.remove('show');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                // Close menu on escape key
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && navDropdown.classList.contains('show')) {
+                        menuBtn.classList.remove('opened');
+                        navDropdown.classList.remove('show');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Initialize Freight Modal functionality
+            const freightModal = document.getElementById('freightModal');
+            if (freightModal) {
+                window.openModal = function (event) {
+                    event.preventDefault();
+                    freightModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                window.closeModal = function () {
+                    freightModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                };
+
+                freightModal.addEventListener('click', function (event) {
+                    if (event.target === this) {
+                        closeModal();
+                    }
+                });
+            }
+
+            // Back to top functionality
+            const backToTop = document.querySelector('.back-to-top');
+            if (backToTop) {
+                window.addEventListener('scroll', function () {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.add('show');
+                    } else {
+                        backToTop.classList.remove('show');
+                    }
+                });
+
+                backToTop.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2AkF_gAGBhoE22dcJMXbb6KiqgMpgqig",
+            authDomain: "assurance-freight.firebaseapp.com",
+            databaseURL: "https://assurance-freight-default-rtdb.firebaseio.com",
+            projectId: "assurance-freight",
+            storageBucket: "assurance-freight.firebasestorage.app",
+            messagingSenderId: "225778389799",
+            appId: "1:225778389799:web:08ba7ac06960b3214c0f02",
+            measurementId: "G-NHM1EMDNQ4"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate form
+            if (!name || !email || !subject || !message) {
+                document.getElementById('formMessage').innerHTML = '<div class="alert alert-danger">Please fill in all fields.</div>';
+                return;
+            }
+            
+            // Disable submit button and show loading state
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending...';
+            
+            // Create contact message object
+            const contactData = {
+                name: name,
+                email: email,
+                subject: subject,
+                message: message,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            };
+            
+            // Save to Firebase
+            firebase.database().ref('contacts').push(contactData)
+                .then(() => {
+                    // Clear form
+                    document.getElementById('contactForm').reset();
+                    
+                    // Show success message
+                    document.getElementById('formMessage').innerHTML = 
+                        '<div class="alert alert-success">Thank you! Your message has been sent successfully.</div>';
+                    
+                    // Reset button
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Send Message';
+                    
+                    // Clear success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('formMessage').innerHTML = '';
+                    }, 5000);
+                })
+                .catch(error => {
+                    // Show error message
+                    document.getElementById('formMessage').innerHTML = 
+                        `<div class="alert alert-danger">Error: ${error.message}</div>`;
+                    
+                    // Reset button
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Send Message';
+                });
+        });
+    </script>
 
 </body>
 

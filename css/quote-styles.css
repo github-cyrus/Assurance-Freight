@@ -1,0 +1,176 @@
+/* Quote Button Styles */
+.boxed-btn3-line {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #FF3414 !important;
+    background: transparent;
+    border: 2px solid #FF3414;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.boxed-btn3-line:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #FF3414;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.boxed-btn3-line:hover {
+    color: #fff !important;
+    border-color: #FF3414;
+}
+
+.boxed-btn3-line:hover:before {
+    width: 100%;
+}
+
+/* Pulse animation for emphasis */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 52, 20, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 52, 20, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 52, 20, 0);
+    }
+}
+
+.boxed-btn3-line.emphasis {
+    animation: pulse 2s infinite;
+}
+
+/* Ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Modern Gradient Styles for Quote Button */
+.quote-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    background: #FF3414;
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 52, 20, 0.3);
+    position: relative;
+}
+
+.quote-button:hover {
+    background: #e62d0e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 52, 20, 0.4);
+}
+
+.quote-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(255, 52, 20, 0.3);
+}
+
+.quote-button i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.quote-button::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #FF3414;
+    border-radius: 32px;
+    z-index: -1;
+    opacity: 0.4;
+    filter: blur(8px);
+}
+
+/* Header styles */
+.header-area {
+    padding: 15px 0;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header_contact_info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header_contact_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.header_contact_item:hover {
+    color: #FF3414;
+}
+
+.header_contact_item i {
+    color: #FF3414;
+    font-size: 16px;
+}
+
+.quote-button-header {
+    padding: 10px 25px;
+    font-size: 14px;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .boxed-btn3-line {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .quote-button {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+    
+    .quote-button i {
+        font-size: 16px;
+    }
+}

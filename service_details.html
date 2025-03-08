@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Transportion</title>
+    <title>Assurance Freight</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="css/flaticon.css">
@@ -25,10 +25,1448 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="quote-button.js"></script>
-
+    <link rel="stylesheet" href="css/quote-styles.css">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <style>
+        .slider_bg_1 {
+            background-image: url(img/banner/banner.png);
+        }
+        
+        .slider_bg_2 {
+            background-image: url(img/banner/banner_2.png);
+        }
+        
+        .slider_bg_3 {
+            background-image: url(img/banner/banner_3.png);
+        }
+        
+        .slider_area .single_slider {
+            height: 700px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+    <style>
+        .single_transport {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px;
+            background-color: #fffdfd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+    
+        .single_transport:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+    
+        .single_transport .icon {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    
+        .single_transport h3 {
+            text-align: center;
+            font-size: 24px;
+            color: #1F1F1F;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+            text-transform: capitalize;
+            padding: 0 10px;
+        }
+    
+        .single_transport p {
+            font-size: 16px;
+            color: #666;
+            text-align: justify;
+            line-height: 1.6;
+        }
+    
+        .transportaion_area {
+            padding: 40px 0 30px 0;
+            background-color: #ffffff;
+        }
+    </style>
+    
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" href="css/transportation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+        <style>
+            /* Dropdown Navigation Styles */
+            .nav-dropdown {
+                position: relative;
+                display: inline-block;
+                margin-left: 30px;
+            }
+    
+            .nav-dropdown-btn {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+                margin-left: 15px;
+            }
+    
+            .nav-dropdown-btn .bar {
+                width: 25px;
+                height: 3px;
+                background-color: #000;
+                margin: 4px 0;
+                transition: 0.4s;
+                display: block;
+            }
+    
+            .nav-dropdown-content {
+                display: none;
+                position: absolute;
+                right: 0;
+                background-color: #fff;
+                min-width: 200px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1000;
+                border-radius: 4px;
+                padding: 10px 0;
+            }
+    
+            .nav-dropdown-content.show {
+                display: block;
+            }
+    
+            .nav-dropdown-content ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .nav-dropdown-content ul li {
+                padding: 8px 20px;
+            }
+    
+            .nav-dropdown-content ul li a {
+                color: #000;
+                text-decoration: none;
+                display: block;
+                transition: color 0.3s;
+            }
+    
+            .nav-dropdown-content ul li a:hover {
+                color: #FF3414;
+            }
+    
+            /* Adjust header right section layout */
+            .header_right {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 20px;
+            }
+            
+            .book_btn {
+                margin-right: 0;
+            }
+        </style>
+        <style>
+            /* Enhanced Text Rotator Styles */
+            .text-rotator-section {
+                text-align: center;
+                padding: 40px 0 30px 0;
+                margin: 40px 0 30px 0;
+                background: #fff;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            /* Slider Area Bottom Spacing */
+            .slider_area {
+                margin-bottom: 30px;
+            }
+            
+            /* Add a subtle background effect */
+            .text-rotator-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(247,247,247,0.5) 50%, rgba(255,255,255,0) 100%);
+                pointer-events: none;
+            }
+            
+            .text-rotator-section .container {
+                position: relative;
+                z-index: 1;
+            }
+            
+            .ld-fh-element {
+                font-size: 3em;
+                font-weight: 700;
+                color: #16133e;
+                margin-bottom: 30px;
+                line-height: 1.4;
+            }
+    
+            .txt-rotate-keywords {
+                display: inline-block;
+                position: relative;
+                color: #FF3414;
+                min-height: 60px;
+                min-width: 300px;
+                vertical-align: middle;
+            }
+    
+            .txt-rotate-keyword {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                display: block;
+            }
+    
+            .txt-rotate-keyword.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    
+            .txt-rotate-keyword.lqd-keyword-slide-out {
+                opacity: 0;
+                transform: translateY(-20px);
+                transition-duration: 0.4s;
+            }
+    
+            .txt-rotate-keyword.is-next {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+    
+            .txt-rotate-keyword span {
+                display: block;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+    
+            /* Add highlight effect */
+            .lqd-highlight-classic {
+                position: relative;
+                padding: 0 0.1em;
+            }
+    
+            .lqd-highlight-grow-left::after {
+                content: '';
+                display: inline-block;
+                width: 0;
+                height: 0.4em;
+                position: absolute;
+                bottom: -0.1em;
+                left: -0.1em;
+                right: -0.1em;
+                background: rgba(255, 255, 255, 0.15);
+                z-index: -1;
+                animation: highlightGrow 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            }
+    
+            @keyframes highlightGrow {
+                0% {
+                    width: 0;
+                }
+                100% {
+                    width: calc(100% + 0.2em);
+                }
+            }
+        </style>
+        
+        <style>
+            /* Text Rotator Styles */
+            .text-rotator-section {
+                text-align: center;
+                padding: 40px 0 30px 0;
+                background: #fff;
+            }
+            
+            .ld-fh-element {
+                font-size: 2.5em;
+                font-weight: 700;
+                color: #16133e;
+                margin-bottom: 30px;
+            }
+    
+            .txt-rotate-keywords {
+                display: inline-block;
+                position: relative;
+                color: #FF3414;
+            }
+    
+            .txt-rotate-keyword {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+            }
+    
+            .txt-rotate-keyword.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    
+            .txt-rotate-keyword.lqd-keyword-slide-out {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+    
+            .txt-rotate-keyword.is-next {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        </style>
+        <style>
+            /* Remove gap between header and banner */
+            .header-area {
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+    
+            .slider_area {
+                margin-top: 0;
+                padding-top: 0;
+            }
+    
+            /* Ensure header is above slider */
+            .header-area {
+                position: relative;
+                z-index: 100;
+            }
+    
+            .slider_area {
+                position: relative;
+                z-index: 1;
+            }
+    
+            /* Remove any potential spacing from header bottom border */
+            .header_bottom_border {
+                margin-bottom: 0;
+                border-bottom: none;
+            }
+        </style>
+    
+        <style>
+            /* Floating Buttons Styles */
+            .floating-contact,
+            .floating-whatsapp,
+            .back-to-top {
+                position: fixed;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            .floating-contact {
+                bottom: 160px;
+                background-color: #FF4742;
+                color: #fff;
+            }
+
+            .floating-whatsapp {
+                bottom: 90px;
+                background-color: #FF4742;
+                color: #fff;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                background-color: #FF4742;
+                color: #fff;
+            }
+
+            .floating-contact:hover,
+            .floating-whatsapp:hover,
+            .back-to-top:hover {
+                transform: scale(1.1);
+                color: #fff;
+            }
+
+            .floating-contact i,
+            .floating-whatsapp i,
+            .back-to-top i {
+                font-size: 20px;
+                color: #fff;
+            }
+            @media (min-width: 1024px) { /* Adjust the width as per your requirement */
+                #nav1 {
+                    display: none;
+                }
+            }
+
+
+
+            .faq_ask .card-header .btn-link {
+                white-space: normal; /* Allows text to wrap */
+                text-align: left; /* Aligns text properly */
+                word-break: break-word; /* Breaks long words */
+                display: block; /* Ensures full-width usage */
+            }
+            
+        </style>
+    
+        <style>
+            .service_details {
+                padding: 120px 0;
+                background: #f8f9fa;
+            }
+
+            .service_details_left {
+                background: #fff;
+                padding: 50px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                position: sticky;
+                top: 100px;
+                min-height: 600px;
+                width: 115%;
+            }
+
+            .service_content {
+                flex: 1;
+            }
+
+            .service_title {
+                font-size: 18px;
+                font-weight: 700;
+                color: #001D38;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .service_subtitle {
+                font-size: 14px;
+                color: #727272;
+                margin: 0;
+            }
+
+            .service_contact_info {
+                margin-top: 40px;
+                padding-top: 30px;
+                border-top: 1px solid #eee;
+            }
+
+            .service_contact_info h3 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #001D38;
+            }
+
+            .contact_item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .contact_item i {
+                width: 40px;
+                height: 40px;
+                background: #FFA500;
+                color: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+            }
+
+            .contact_text span {
+                display: block;
+                font-size: 14px;
+                color: #727272;
+            }
+
+            .contact_text a {
+                font-size: 16px;
+                font-weight: 600;
+                color: #001D38;
+                text-decoration: none;
+            }
+
+            .service_details_header {
+                margin-bottom: 50px;
+            }
+
+            .service_category {
+                font-size: 24px;
+                text-transform: uppercase;
+                color: #FFA500;
+                font-weight: 700;
+                letter-spacing: 2.5px;
+                display: block;
+                margin-bottom: 25px;
+                line-height: 1.4;
+            }
+
+            .service_details_header h2 {
+                font-size: 36px;
+                color: #001D38;
+                margin-bottom: 20px;
+            }
+
+            .service_feature_grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                margin-bottom: 50px;
+            }
+
+            .feature_item {
+                background: #fff;
+                padding: 30px;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .feature_item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-color: #FFA500;
+            }
+
+            .feature_item i {
+                font-size: 30px;
+                color: #FFA500;
+                margin-bottom: 20px;
+            }
+
+            .feature_item h4 {
+                font-size: 20px;
+                margin-bottom: 15px;
+                color: #001D38;
+            }
+
+            .feature_item p {
+                color: #727272;
+                margin: 0;
+            }
+
+            @media (max-width: 991px) {
+                .service_details {
+                    padding: 80px 0;
+                }
+
+                .service_details_left {
+                    margin-left: 0;
+                    width: 100%;
+                    margin-bottom: 40px;
+                    position: static;
+                }
+
+                .service_feature_grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .service_details_header h2 {
+                    font-size: 28px;
+                }
+            }
+
+            @media (max-width: 1200px) {
+                .service_category {
+                    font-size: 22px;
+                }
+            }
+
+            @media (max-width: 991px) {
+                .service_category {
+                    font-size: 20px;
+                    letter-spacing: 2px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .service_category {
+                    font-size: 18px;
+                    letter-spacing: 1.8px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .service_category {
+                    font-size: 16px;
+                    letter-spacing: 1.5px;
+                }
+            }
+        </style>
+    
+        <style>
+            .service_image {
+                margin-top: 40px;
+                position: relative;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .service_image:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(0deg, rgba(0, 29, 56, 0.1) 0%, rgba(0, 29, 56, 0) 100%);
+                z-index: 1;
+            }
+
+            .service_image img {
+                width: 100%;
+                height: auto;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .service_image:hover img {
+                transform: scale(1.05);
+            }
+
+            @media (max-width: 767px) {
+                .service_image {
+                    margin-top: 30px;
+                }
+            }
+        </style>
+    
+        <style>
+            /* General Responsive Adjustments */
+            @media (max-width: 1200px) {
+                .service_details_left {
+                    width: 110%;
+                    margin-left: -10%;
+                }
+
+                .service_feature_grid {
+                    gap: 20px;
+                }
+
+                .feature_item {
+                    padding: 25px;
+                }
+
+                .service_details_header h2 {
+                    font-size: 32px;
+                }
+            }
+
+            @media (max-width: 991px) {
+                .service_details {
+                    padding: 60px 0;
+                }
+
+                .service_details_left {
+                    margin-left: 0;
+                    width: 100%;
+                    margin-bottom: 40px;
+                    position: static;
+                    min-height: auto;
+                    padding: 30px;
+                }
+
+                .service_feature_grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+
+                .feature_item {
+                    padding: 20px;
+                }
+
+                .feature_item h4 {
+                    font-size: 18px;
+                }
+
+                .service_details_header h2 {
+                    font-size: 28px;
+                }
+
+                .service_image {
+                    margin-top: 30px;
+                }
+
+                .service_contact_info {
+                    margin-top: 30px;
+                    padding-top: 20px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .service_details {
+                    padding: 40px 0;
+                }
+
+                .service_details_left {
+                    padding: 25px;
+                }
+
+                .service_feature_grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .feature_item {
+                    padding: 20px;
+                }
+
+                .feature_item i {
+                    font-size: 24px;
+                    margin-bottom: 15px;
+                }
+
+                .feature_item h4 {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+
+                .service_details_header h2 {
+                    font-size: 24px;
+                    margin-bottom: 15px;
+                }
+
+                .service_category {
+                    font-size: 12px;
+                    margin-bottom: 15px;
+                }
+
+                .service_image {
+                    margin-top: 25px;
+                    border-radius: 10px;
+                }
+
+                .service_title {
+                    font-size: 16px;
+                }
+
+                .service_subtitle {
+                    font-size: 13px;
+                }
+
+                .contact_item {
+                    margin-bottom: 15px;
+                }
+
+                .contact_item i {
+                    width: 35px;
+                    height: 35px;
+                    font-size: 14px;
+                }
+
+                .contact_text a {
+                    font-size: 14px;
+                }
+
+                .service_contact_info h3 {
+                    font-size: 20px;
+                    margin-bottom: 15px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .service_details {
+                    padding: 30px 0;
+                }
+
+                .service_details_left {
+                    padding: 20px;
+                }
+
+                .section_title {
+                    font-size: 22px;
+                    margin-bottom: 20px;
+                }
+
+                .service_list .nav-link {
+                    padding: 15px;
+                }
+
+                .service_icon {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 10px;
+                }
+
+                .service_icon i {
+                    font-size: 18px;
+                }
+
+                .feature_item {
+                    padding: 15px;
+                }
+
+                .feature_item i {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+
+                .feature_item h4 {
+                    font-size: 15px;
+                }
+
+                .feature_item p {
+                    font-size: 13px;
+                }
+
+                .service_details_header h2 {
+                    font-size: 20px;
+                }
+
+                .service_image {
+                    margin-top: 20px;
+                    border-radius: 8px;
+                }
+            }
+
+            /* Fix for very small screens */
+            @media (max-width: 360px) {
+                .service_details_left {
+                    padding: 15px;
+                }
+
+                .service_list .nav-link {
+                    padding: 12px;
+                }
+
+                .service_title {
+                    font-size: 14px;
+                }
+
+                .service_subtitle {
+                    font-size: 12px;
+                }
+
+                .feature_item {
+                    padding: 12px;
+                }
+            }
+        </style>
+    
+        <style>
+            .service_list .nav-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 35px 25px;
+                margin-bottom: 20px;
+                border-radius: 15px;
+                transition: all 0.3s ease;
+                background: #f8f9fa;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                min-height: 200px;
+            }
+
+            .service_list .nav-link:hover,
+            .service_list .nav-link.active {
+                background: #fff;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-color: #FFA500;
+                transform: translateY(-3px);
+            }
+
+            .service_icon {
+                width: 100px;
+                height: 100px;
+                background: #f8f9fa;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 25px;
+                transition: all 0.3s ease;
+            }
+
+            .service_list .nav-link:hover .service_icon,
+            .service_list .nav-link.active .service_icon {
+                background: #FFA500;
+                transform: none;
+            }
+
+            .service_icon i {
+                font-size: 40px;
+                color: #FFA500;
+                transition: all 0.3s ease;
+            }
+
+            .service_list .nav-link:hover .service_icon i,
+            .service_list .nav-link.active .service_icon i {
+                color: #fff;
+            }
+
+            .service_content {
+                text-align: center;
+                width: 100%;
+            }
+
+            .service_title {
+                font-size: 24px;
+                font-weight: 700;
+                color: #001D38;
+                display: block;
+                margin-bottom: 12px;
+                transition: all 0.3s ease;
+            }
+
+            .service_subtitle {
+                font-size: 16px;
+                color: #727272;
+                transition: all 0.3s ease;
+                max-width: 200px;
+                margin: 0 auto;
+                line-height: 1.5;
+            }
+
+            @media (max-width: 1200px) {
+                .service_list .nav-link {
+                    padding: 30px 20px;
+                    min-height: 180px;
+                }
+
+                .service_icon {
+                    width: 65px;
+                    height: 65px;
+                }
+
+                .service_icon i {
+                    font-size: 26px;
+                }
+            }
+
+            @media (max-width: 991px) {
+                .service_list .nav-link {
+                    padding: 25px 20px;
+                    min-height: 160px;
+                }
+
+                .service_icon {
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .service_icon i {
+                    font-size: 24px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .service_list .nav-link {
+                    padding: 20px 15px;
+                    min-height: 140px;
+                }
+
+                .service_icon {
+                    width: 55px;
+                    height: 55px;
+                }
+
+                .service_icon i {
+                    font-size: 22px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .service_list .nav-link {
+                    padding: 15px;
+                    min-height: 120px;
+                }
+
+                .service_icon {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .service_icon i {
+                    font-size: 20px;
+                }
+            }
+        </style>
+    
+        <style>
+            .service_contact_info {
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 8px;
+            }
+
+            .service_contact_info h3 {
+                margin-bottom: 20px;
+                font-size: 24px;
+                color: #2C2C2C;
+            }
+
+            .contact_item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .contact_item i {
+                font-size: 20px;
+                margin-right: 15px;
+                color: #FF3414;
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 52, 20, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .contact_text {
+                flex: 1;
+            }
+
+            .contact_text span {
+                display: block;
+                font-size: 14px;
+                color: #727272;
+            }
+
+            .contact_text a {
+                color: #2C2C2C;
+                font-size: 16px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .contact_text a:hover {
+                color: #FF3414;
+            }
+
+            /* Mobile Responsive Styles */
+            @media (max-width: 767px) {
+                .service_contact_info {
+                    padding: 15px;
+                    margin: 0 10px;
+                }
+
+                .service_contact_info h3 {
+                    font-size: 20px;
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+
+                .contact_item {
+                    margin-bottom: 12px;
+                }
+
+                .contact_item i {
+                    font-size: 18px;
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 10px;
+                }
+
+                .contact_text span {
+                    font-size: 13px;
+                }
+
+                .contact_text a {
+                    font-size: 15px;
+                }
+            }
+        </style>
+    <style>
+        .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+        }
+
+        .line {
+            fill: none;
+            stroke: #2E2E2E;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 3;
+        }
+
+        .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+
+        .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 3;
+        }
+
+        .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+    </style>
+    <style>
+        .modern-quote-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #FF3B30, #FF6347);
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
+            border: none;
+            min-width: 220px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-quote-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.6s ease;
+        }
+
+        .modern-quote-btn:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modern-quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 99, 71, 0.4);
+        }
+
+        .btn-text {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .btn-icon {
+            font-size: 20px;
+            z-index: 1;
+            animation: icon-bounce 1s infinite alternate;
+        }
+
+        @keyframes icon-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-3px); }
+        }
+    </style>
+        <style>
+            /* Header Styling */
+            .header-area {
+                padding: 8px 0;
+                background: #fff;
+                border-bottom: 1px solid #f6f6f6;
+            }
+
+            .header_right {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .short_contact_list ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap: 20px;
+            }
+
+            .short_contact_list ul li {
+                list-style: none;
+            }
+
+            .nav-dropdown {
+                position: relative;
+                margin-left: 15px;
+            }
+
+            .nav-dropdown-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 2px;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .nav-dropdown-btn .bar {
+                width: 18px;
+                height: 2px;
+                background: #2E2E2E;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-dropdown-content {
+                position: absolute;
+                right: 0;
+                top: 100%;
+                background: #fff;
+                min-width: 200px;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                padding: 10px 0;
+                display: none;
+                margin-top: 10px;
+            }
+
+            .nav-dropdown-content ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .nav-dropdown-content ul li a {
+                display: block;
+                padding: 8px 20px;
+                color: #2E2E2E;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .nav-dropdown-content ul li a:hover {
+                background: #f8f9fa;
+                color: #FF3B30;
+            }
+
+            .nav-dropdown-content.show {
+                display: block;
+            }
+        </style>
+            <style>
+                /* Modal Styles */
+                .modal-overlay {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.85);
+                    z-index: 9999;
+                    opacity: 0;
+                    backdrop-filter: blur(5px);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+        
+                .modal-overlay.active {
+                    opacity: 1;
+                    display: block;
+                }
+        
+                .freight-modal {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -60%);
+                    background: #fff;
+                    padding: 50px;
+                    border-radius: 25px;
+                    max-width: 1000px;
+                    width: 95%;
+                    z-index: 10000;
+                    opacity: 0;
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+        
+                .modal-overlay.active .freight-modal {
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+        
+                .modal-close {
+                    position: absolute;
+                    top: 25px;
+                    right: 25px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #f8f9fa;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+        
+                .modal-close:hover {
+                    background: #FF3414;
+                    color: white;
+                    transform: rotate(90deg);
+                }
+        
+                .freight-options {
+                    display: flex;
+                    gap: 25px;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    margin-top: 40px;
+                }
+        
+                .freight-option {
+                    flex: 1;
+                    min-width: 280px;
+                    max-width: 320px;
+                    background: #fff;
+                    padding: 35px;
+                    border-radius: 20px;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    text-decoration: none;
+                    color: #333;
+                    border: 2px solid #f8f9fa;
+                    position: relative;
+                    overflow: hidden;
+                }
+        
+                .freight-option::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(45deg, #FF3414, #ff6b4a);
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                    z-index: 0;
+                }
+        
+                .freight-option:hover {
+                    transform: translateY(-10px);
+                    border-color: #FF3414;
+                    box-shadow: 0 20px 40px rgba(255, 52, 20, 0.15);
+                }
+        
+                .freight-option:hover::before {
+                    opacity: 0.03;
+                }
+        
+                .freight-option > * {
+                    position: relative;
+                    z-index: 1;
+                }
+        
+                .freight-option i {
+                    font-size: 3.5em;
+                    color: #FF3414;
+                    margin-bottom: 25px;
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    display: inline-block;
+                }
+        
+                .freight-option:hover i {
+                    transform: scale(1.15) translateY(-5px);
+                }
+        
+                .freight-option h4 {
+                    font-size: 26px;
+                    margin-bottom: 15px;
+                    color: #333;
+                    font-weight: 600;
+                }
+        
+                .freight-option p {
+                    color: #666;
+                    margin-bottom: 25px;
+                    font-size: 16px;
+                    line-height: 1.6;
+                }
+        
+                .freight-modal h2 {
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #333;
+                    margin-bottom: 15px;
+                }
+        
+                .freight-modal > .text-center > p {
+                    color: #666;
+                    font-size: 18px;
+                    max-width: 600px;
+                    margin: 0 auto;
+                }
+        
+                @media (max-width: 768px) {
+                    .freight-modal {
+                        padding: 30px 20px;
+                    }
+                    
+                    .freight-option {
+                        min-width: 100%;
+                    }
+        
+                    .freight-modal h2 {
+                        font-size: 24px;
+                    }
+        
+                    .freight-modal > .text-center > p {
+                        font-size: 16px;
+                    }
+                }
+            </style>
 </head>
 
 <body>
@@ -38,77 +1476,99 @@
 
     <!-- header-start -->
     <header>
-        <div class="header-area ">
+        <div class="header-area">
             <div class="header-top_area d-none d-lg-block">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-4 col-lg-4">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="img/logo.svg" loading="lazy" alt="Logo">
                                 </a>
                             </div>
                         </div>
                         <div class="col-xl-8 col-md-8">
-                            <div class="header_right d-flex align-items-center">
+                            <div class="header_right d-flex">
                                 <div class="short_contact_list">
                                     <ul>
-                                        <li><a href="#"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li>
-                                        <li><a href="#"> <i class="fa fa-phone"></i> +91 9167524332</a></li>
+                                        <!-- <li><a href="#"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li> -->
+                                        <!-- <li><a href="#"> <i class="fa fa-phone"></i>+91 9167524332 </a></li> -->
                                     </ul>
                                 </div>
 
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="boxed-btn3-line" href="javascript:void(0);">Get Free Quote</a>
+                                    <a class="modern-quote-btn" href="#" onclick="openModal(event)">
+                                        <i class="fas fa-calculator btn-icon"></i>
+                                        <span class="btn-text">Assured QUOTE</span>
+                                    </a>
+                                </div>
+
+                                <div class="nav-dropdown">
+                                    <button class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                                        <svg width="30" height="30" viewBox="0 0 100 100">
+                                            <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                            <path class="line line2" d="M 20,50 H 80" />
+                                            <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                        </svg>
+                                    </button>
+                                    <div class="nav-dropdown-content" id="navDropdown">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="About.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="service_details.html">Service Details</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-12 d-block d-lg-none">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/logo.png" alt="">
-                                    </a>
-                                </div>
+            <div class="container">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-block d-lg-none">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logo.svg" loading="lazy" alt="Logo">
+                                </a>
                             </div>
-                            <div class="col-xl-9 col-lg-9">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
+                        </div>
+                        <div class="col-xl-9 col-lg-9">
+                            <div class="main-menu  d-none d-lg-block">
+                                     <nav id="nav1">
                                         <ul id="navigation">
                                             <li><a href="index.html">home</a></li>
-                                            <li><a href="service.html">Services</a></li>
                                             <li><a href="About.html">about</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="service_details.html">service details</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="service_details.html">service details</a></li>
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
-                                    </nav>
+                                    </nav> 
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment justify-content-end">
-                                    <div class="search_btn">
-                                        <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
-                                            <i class="ti-search"></i>
-                                        </a>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none">
+                                    <div class="nav-dropdown">
+                                        
+                                        <div class="nav-dropdown-content" id="navDropdown">
+                                            <ul>
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="About.html">About</a></li>
+                                                <li><a href="service.html">Services</a></li>
+                                                <li><a href="service_details.html">Service Details</a></li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -127,165 +1587,172 @@
             </div>
         </div>
     </div>
-    <!--/ bradcam_area  -->
 
     <!-- service_details_start  -->
     <div class="service_details_area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4">
-                    <div class="service_details_left">
-                        <h3>Services</h3>
-                        <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-                                aria-controls="v-pills-home" aria-selected="true">Ocean Freight</a>
-                            <a class="" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                                aria-controls="v-pills-profile" aria-selected="false">Land Transport</a>
-                            <a class="" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                                aria-controls="v-pills-messages" aria-selected="false">Air Freight</a>
+                    <div class="service_details_left" style="margin-left: -15%;">
+                        <h2 class="section_title">Our Services</h2>
+                        <div class="service_list">
+                            <div class="nav nav-pills custom-tabs" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <a class="nav-link active" id="v-pills-air-tab" data-toggle="pill" href="#v-pills-air" role="tab">
+                                    <div class="service_content_wrapper">
+                                        <div class="service_icon">
+                                            <i class="fa fa-plane"></i>
+                                        </div>
+                                        <div class="service_content">
+                                            <span class="service_title">Air Freight</span>
+                                            <p class="service_subtitle">Fast & Reliable Air Transport</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" id="v-pills-ocean-tab" data-toggle="pill" href="#v-pills-ocean" role="tab">
+                                    <div class="service_content_wrapper">
+                                        <div class="service_icon">
+                                            <i class="fa fa-ship"></i>
+                                        </div>
+                                        <div class="service_content">
+                                            <span class="service_title">Ocean Freight</span>
+                                            <p class="service_subtitle">Global Sea Shipping Solutions</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="nav-link" id="v-pills-land-tab" data-toggle="pill" href="#v-pills-land" role="tab">
+                                    <div class="service_content_wrapper">
+                                        <div class="service_icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <div class="service_content">
+                                            <span class="service_title">Land Transport</span>
+                                            <p class="service_subtitle">Nationwide Ground Logistics</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="service_contact_info">
+                            <h3>Need Help?</h3>
+                            <div class="contact_item">
+                                <i class="fa fa-phone"></i>
+                                <div class="contact_text">
+                                    <span>Call Us</span>
+                                    <a href="tel:1234567890">+91 9167524332</a>
+                                </div>
+                            </div>
+                            <div class="contact_item">
+                                <i class="fa fa-envelope"></i>
+                                <div class="contact_text">
+                                    <span>Email Us</span>
+                                    <a href="mailto:info@example.com">info@assurancefreight.in</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="tab-content" id="v-pills-tabContent">
-                        <!-- Ocean Freight Tab -->
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                            aria-labelledby="v-pills-home-tab">
+                        <div class="tab-pane fade show active" id="v-pills-air" role="tabpanel">
                             <div class="service_details_info">
-                                <h3>Service details</h3>
-                                <p>
-                                    Ocean freight is a cost-efficient and reliable method for transporting large volumes
-                                    of goods internationally. We specialize in providing seamless logistics with a focus
-                                    on safety, timely delivery, and global compliance.
-                                </p>
-                                <p>Our Services Include:</p>
-                                <p>Full Container Load (FCL): Exclusive container use for larger shipments.</p>
-                                <p>Less than Container Load (LCL): Shared container space for smaller shipments,
-                                    reducing costs.</p>
-                                <p>Customs Clearance: End-to-end documentation and regulatory compliance.</p>
-                                <p>Cargo Insurance: Ensuring the safety and security of your goods.</p>
-                                <p>Real-Time Tracking: Monitor your shipment every step of the way.</p>
-                            </div>
-                            <div class="service_thumb">
-                                <img class="img-fluid" src="img/service/service_details.png" alt="">
-                            </div>
-                            <div class="accordion_area">
-                                <div class="faq_ask">
-                                    <h3>Frequently ask</h3>
-                                    <div id="accordion">
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                        data-target="#collapseOne" aria-expanded="false"
-                                                        aria-controls="collapseOne">
-                                                        What is the difference between FCL and LCL in ocean freight?
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                                data-parent="#accordion">
-                                                <div class="card-body">FCL (Full Container Load) is when a shipment
-                                                    fills an entire container, offering exclusive use. LCL (Less than
-                                                    Container Load) is for smaller shipments where goods are
-                                                    consolidated with other cargo in a shared container, making it a
-                                                    cost-effective option for smaller volumes.
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="service_details_header">
+                                    <span class="service_category">Air Freight Services</span>
+                                    <h2>Global Air Transport Solutions</h2>
+                                    <p>Experience seamless air freight services with our comprehensive global network and efficient cargo handling.</p>
+                                </div>
+                                <div class="service_feature_grid">
+                                    <div class="feature_item">
+                                        <i class="fa fa-clock-o"></i>
+                                        <h4>Express Delivery</h4>
+                                        <p>Air freight offers the fastest delivery option for time-sensitive shipments, ensuring goods are transported quickly and efficiently. We leverage fast and frequent flights to minimize transit times, ensuring your products reach their destination within tight deadlines.
+                                        </p>
                                     </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-globe"></i>
+                                        <h4>Global Coverage</h4>
+                                        <p>Our air freight network spans across the globe, connecting key international airports and offering seamless shipping routes. We work with top airlines and hubs worldwide, ensuring your cargo can be shipped from virtually any location to any destination.</p>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-shield"></i>
+                                        <h4>Cargo Security</h4>
+                                        <p>Security is a top priority in air freight. We employ stringent safety protocols, including secure packaging, cargo seals, and 24/7 tracking, to ensure the safety and integrity of your goods. We also offer comprehensive insurance options to safeguard valuable or high-risk cargo.</p>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-cube"></i>
+                                        <h4>Custom Solutions</h4>
+                                        <p>We understand that different cargo types have unique needs, which is why we provide customized air freight solutions. From temperature-controlled transport for perishables to special handling for hazardous materials, we offer flexible services to suit any requirement</p>
+                                    </div>
+                                </div>
+                                <div class="service_image">
+                                    <img src="img/service/sd1.png" alt="Air Freight Service" class="img-fluid">
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Land Transport Tab -->
-                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
-                            aria-labelledby="v-pills-profile-tab">
+                        <div class="tab-pane fade" id="v-pills-ocean" role="tabpanel">
                             <div class="service_details_info">
-                                <h3>Service details</h3>
-                                <p>Land freight offers efficient and reliable transportation for goods across cities and
-                                    regions, providing a vital link in the logistics chain. We ensure timely deliveries
-                                    with tailored solutions for diverse needs.</p>
-                                <p>Our Services Include:</p>
-                                <p>Full Truck Load (FTL): Dedicated trucks for large shipments to optimize speed and
-                                    security.</p>
-                                <p>Less than Truck Load (LTL): Cost-effective shared trucking solutions for smaller
-                                    consignments.</p>
-                                <p>Rail Freight: Eco-friendly and efficient transport for long distances.</p>
-                                <p>Door-to-Door Delivery: Comprehensive pickup and delivery service for convenience.</p>
-                            </div>
-                            <div class="service_thumb">
-                                <img class="img-fluid" src="img/service/service_details.png" alt="">
-                            </div>
-                            <div class="accordion_area">
-                                <div class="faq_ask">
-                                    <h3>Frequently ask</h3>
-                                    <div id="accordion2">
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne2">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                        data-target="#collapseOne2" aria-expanded="false"
-                                                        aria-controls="collapseOne2">
-                                                        What is the difference between FTL and LTL in land transport?
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
-                                                data-parent="#accordion2">
-                                                <div class="card-body">FTL (Full Truck Load) means your goods occupy an
-                                                    entire truck, while LTL (Less than Truck Load) involves sharing
-                                                    truck space with other shipments to reduce costs.
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="service_details_header">
+                                    <span class="service_category">Ocean Freight Services</span>
+                                    <h2>Global Sea Shipping Solutions</h2>
+                                    <p>Experience seamless ocean freight services with our comprehensive global network and efficient cargo handling.</p>
+                                </div>
+                                <div class="service_feature_grid">
+                                    <div class="feature_item">
+                                        <i class="fa fa-anchor"></i>
+                                        <h4>Reliable Delivery</h4>
+                                        <p>Our ocean freight services ensure consistent and on-time deliveries with well-structured shipping schedules and dependable carrier partnerships. We manage all logistics processes, from port handling to final delivery, minimizing transit delays and ensuring smooth operations.</p>
                                     </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-globe"></i>
+                                        <h4>Global Coverage</h4>
+                                        <p>We provide seamless international shipping with access to major ports worldwide, enabling efficient import and export operations. Whether you need transcontinental transport or regional shipping, our extensive network ensures your cargo reaches its destination hassle-free.</p>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-shield"></i>
+                                        <h4>Cargo Security</h4>
+                                        <p>Safety is our priority, with secure containerized shipping, advanced GPS tracking, and strict adherence to international maritime regulations. We implement robust security measures, including temperature-controlled containers, dangerous goods handling, real-time cargo tracking, and insurance options to safeguard valuable shipments.</p>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-cube"></i>
+                                        <h4>Custom Solutions</h4>
+                                        <p>Our ocean freight solutions are tailored to meet diverse business needs, offering flexible options such as Full Container Load (FCL), Less than Container Load (LCL), and bulk cargo shipping. We also provide specialized handling for hazardous materials, perishable goods, and oversized freight, ensuring efficient and cost-effective logistics solutions.</p>
+                                    </div>
+                                </div>
+                                <div class="service_image">
+                                    <img src="img/service/sd2.png" alt="Ocean Freight Service" class="img-fluid">
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Air Freight Tab -->
-                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
-                            aria-labelledby="v-pills-messages-tab">
+                        <div class="tab-pane fade" id="v-pills-land" role="tabpanel">
                             <div class="service_details_info">
-                                <h3>Service details</h3>
-                                <p>Air freight provides the fastest and most reliable transportation for time-sensitive
-                                    and high-value shipments. We ensure seamless delivery with a global network and
-                                    expert handling.</p>
-                                <p>Our Services Include:</p>
-                                <p>Express Shipping: Ultra-fast delivery for urgent shipments.</p>
-                                <p>Consolidated Freight: Cost-effective solutions by combining multiple shipments.</p>
-                                <p>Customs Clearance: Streamlined documentation and regulatory compliance.</p>
-                                <p>Specialized Cargo Handling: Expertise in handling fragile, perishable, and oversized
-                                    items.</p>
-                                <p>Real-Time Tracking: Monitor your shipment's journey from start to finish.</p>
-                            </div>
-                            <div class="service_thumb">
-                                <img class="img-fluid" src="img/service/service_details.png" alt="">
-                            </div>
-                            <div class="accordion_area">
-                                <div class="faq_ask">
-                                    <h3>Frequently ask</h3>
-                                    <div id="accordion3">
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne3">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                        data-target="#collapseOne3" aria-expanded="false"
-                                                        aria-controls="collapseOne3">
-                                                        What types of goods can be shipped via air freight?
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseOne3" class="collapse" aria-labelledby="headingOne3"
-                                                data-parent="#accordion3">
-                                                <div class="card-body">Air freight is suitable for high-value,
-                                                    time-sensitive, and perishable goods. This includes electronics,
-                                                    pharmaceuticals, fresh produce, fashion items, and urgent documents.
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="service_details_header">
+                                    <span class="service_category">Land Transport Services</span>
+                                    <h2>Nationwide Ground Logistics</h2>
+                                    <p>Experience seamless land transport services with our comprehensive network and efficient cargo handling.</p>
+                                </div>
+                                <div class="service_feature_grid">
+                                    <div class="feature_item">
+                                        <i class="fa fa-truck"></i>
+                                        <h4>Reliable Delivery</h4>
+                                        <p>We ensure timely and efficient transportation with a well-maintained fleet and experienced drivers. Our streamlined logistics process minimizes delays, optimizing supply chain operations.</p>
                                     </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-map-marker"></i>
+                                        <h4>Nationwide Coverage</h4>
+                                        <p>Our extensive network covers major cities, towns, and remote locations, providing seamless transportation across the country. We offer flexible shipping options, including same-day and scheduled deliveries.</p>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-shield"></i>
+                                        <h4>Cargo Security</h4>
+                                        <p>We prioritize the safety of your goods with advanced security measures, including GPS tracking, tamper-proof seals, and secure loading processes. Our trained personnel handle shipments with care, reducing the risk of damage or loss.</p>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-cube"></i>
+                                        <h4>Custom Solutions</h4>
+                                        <p>We prioritize the safety of your goods with advanced security measures, including GPS tracking, tamper-proof seals, and secure loading processes. Our trained personnel handle shipments with care, reducing the risk of damage or loss.</p>
+                                    </div>
+                                </div>
+                                <div class="service_image">
+                                    <img src="img/service/sd3.png" alt="Land Transport Service" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -294,6 +1761,7 @@
             </div>
         </div>
     </div>
+
     <!-- service_details_start  -->
 
     <!-- Estimate_area start  -->
@@ -308,21 +1776,32 @@
                     <div class="location_left">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/logo.svg" alt="">
                             </a>
                         </div>
                         <ul>
-                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
+                            <li><a href="https://www.facebook.com/share/18V3V5uUHJ/?mibextid=wwXIfr" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a></li>
+                            <li><a href="https://www.instagram.com/invites/contact/?igsh=1ffx71yis8wcc&utm_content=wxpctqk" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a></li>
+                            <li><a href="https://x.com/assuredfreight?s=11" target="_blank">
+                                <i class="fab fa-x-twitter"></i>
+                            </a></li>
+                            <li><a href="http://www.youtube.com/@AssuranceFreight" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a></li>
+                            <li><a href="https://www.linkedin.com/in/assurance-freight-13980b347/" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-3">
                     <div class="single_location">
                         <h3> <img src="img/icon/address.svg" alt=""> Location</h3>
-                        <p>Gala No. A5,
+                        <p>A5,
                             1st Floor,
                             Raj Industrial Estate,
                             Military Road,
@@ -355,13 +1834,12 @@
                                 Services
                             </h3>
                             <ul>
-                                <li><a href="#">Air Transportation</a></li>
-                                <li><a href="#">Ocean Freight</a></li>
-                                <li><a href="#">Ocean Cargo</a></li>
-                                <li><a href="#">Logistics</a></li>
-                                <li><a href="#">Warehouse Moving</a></li>
+                                <li>Freight Forwarding</li>
+                                <li>Supply Chain Management</li>
+                                <li>Last-Mile Delivery</li>
+                                <li>Customs Brokerage</li>
+                                <li>Inventory Management</li>
                             </ul>
-
                         </div>
                     </div>
                     <div class="col-xl-2 col-md-6 col-lg-2">
@@ -370,10 +1848,10 @@
                                 Company
                             </h3>
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#"> Testimonials</a></li>
-                                <li><a href="#"> Why Us?</a></li>
+                                <li>About Us</li>
+                                <li>Our Values</li>
+                                <li>Client Testimonials</li>
+                                <li>Why Choose Us?</li>
                             </ul>
                         </div>
                     </div>
@@ -383,11 +1861,11 @@
                                 Industries
                             </h3>
                             <ul>
-                                <li><a>Chemicals</a></li>
-                                <li><a>Automotive</a></li>
-                                <li><a> Consumer Goods</a></li>
-                                <li><a>Life Science</a></li>
-                                <li><a>Foreign Trade</a></li>
+                                <li>Retail and E-commerce</li>
+                                <li>Manufacturing</li>
+                                <li>Automotive Logistics</li>
+                                <li>Healthcare Supply Chain</li>
+                                <li>Food and Beverage Distribution</li>
                             </ul>
                         </div>
                     </div>
@@ -401,7 +1879,11 @@
                                 <input type="email" name="email" placeholder="Enter your mail" required>
                                 <button type="submit">Subscribe</button>
                             </form>
-                            <p class="newsletter_text"></p>
+                            <p class="newsletter_text">
+                                Stay connected with us and receive latest updates about our services and special
+                                offers.
+                            </p>
+
                         </div>
                     </div>
                 </div>
@@ -412,17 +1894,36 @@
     <!--/ footer end  -->
 
     <!-- Modal -->
-    <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="serch_form">
-                    <input type="text" placeholder="search">
-                    <button type="submit">search</button>
-                </div>
-            </div>
+    <div class="modal-overlay" id="selectionModal" style="display: none;">
+        <div class="modal-content">
+            <h2>Select an Option</h2>
+            <button onclick="navigateTo('about.html')">About</button>
+            <button onclick="navigateTo('service.html')">Service</button>
+            <button onclick="navigateTo('service_details.html')">Service Details</button>
+            <button onclick="navigateTo('contact.html')">Contact</button>
+            <button onclick="closeModal()">Close</button>
         </div>
     </div>
+    <script>
+        function openModal() {
+            try {
+                document.getElementById('selectionModal').style.display = 'block';
+            } catch (error) {
+                console.error('Error opening modal:', error);
+            }
+        }
+        function closeModal() {
+            try {
+                document.getElementById('selectionModal').style.display = 'none';
+            } catch (error) {
+                console.error('Error closing modal:', error);
+            }
+        }
+        function navigateTo(page) {
+            closeModal();
+            window.location.href = page;
+        }
+    </script>
     <!-- JS here -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -456,7 +1957,275 @@
 
     <script src="js/main.js"></script>
 
+    <script>
+        // Define searchable content
+        const searchableContent = [
+            {
+                title: 'Ocean Freight',
+                description: 'International shipping via sea routes with global coverage',
+                details: 'Comprehensive ocean freight solutions for global trade. Services include FCL (Full Container Load) and LCL (Less than Container Load) options, bulk cargo handling, and specialized equipment transport. Features include temperature-controlled containers, dangerous goods handling, real-time cargo tracking, and flexible scheduling. Suitable for large volume shipments with competitive rates and extensive port coverage worldwide. Door-to-door delivery services available with professional cargo insurance options. Additional services include customs clearance, cargo consolidation, and specialized project cargo handling.',
+                link: '#ocean-freight'
+            },
+            {
+                title: 'Air Freight',
+                description: 'Express air freight solutions for time-critical global shipments',
+                details: 'Premium air freight services for urgent and high-value cargo. Services include next-day delivery, consolidated cargo services, and charter options. Specialized handling for perishables, valuable goods, and dangerous materials. Features include temperature-controlled units, priority boarding, real-time tracking, and customs clearance assistance. Comprehensive services include door-to-door delivery, warehousing, and distribution. Perfect for urgent shipments, high-value goods, and perishable cargo. Additional features include dedicated account management, insurance coverage, and 24/7 customer support.',
+                link: '#air-freight'
+            },
+            {
+                title: 'Land Transport',
+                description: 'Comprehensive domestic and cross-border land transportation solutions',
+                details: 'Full-service ground transportation solutions including FTL (Full Truck Load) and LTL (Less than Truck Load) services. Featuring temperature-controlled vehicles, specialized equipment transport, and cross-border expertise. Services include GPS tracking, express delivery options, and multi-modal transport solutions. Equipped for oversized cargo, dangerous goods, and valuable shipments. 24/7 customer support with real-time shipment updates. Additional services include warehousing, distribution center services, and last-mile delivery options.',
+                link: '#land-transport'
+            },
+            {
+                title: 'FCL Shipping',
+                description: 'Full Container Load shipping services with global reach',
+                details: 'Dedicated container shipping for complete cargo control. Available container sizes include 20ft, 40ft, 40ft high-cube, and specialized equipment. Services include door-to-door delivery, cargo consolidation, and custom solutions. Features real-time tracking, professional loading/unloading, and cargo insurance options. Suitable for large volume shipments requiring exclusive container use. Includes dangerous goods handling and temperature-controlled options. Additional services include customs documentation, container inspection, and seal verification.',
+                link: '#fcl-shipping'
+            },
+            {
+                title: 'LCL Shipping',
+                description: 'Less than Container Load shipping for cost-effective transport',
+                details: 'Flexible shipping solutions for smaller cargo volumes. Professional consolidation services to optimize shipping costs. Features include careful cargo handling, secure storage, and efficient distribution. Real-time tracking available for all shipments. Includes customs clearance assistance and documentation support. Ideal for small to medium-sized businesses. Additional services include cargo insurance, warehousing, and local delivery options.',
+                link: '#lcl-shipping'
+            },
+            {
+                title: 'Supply Chain Solutions',
+                description: 'End-to-end supply chain management and optimization services',
+                details: 'Comprehensive supply chain solutions including inventory management, warehousing, and distribution. Features include demand planning, order fulfillment, and last-mile delivery. Advanced services include supply chain optimization, risk management, and real-time visibility solutions. Includes KPI reporting, performance analytics, and continuous improvement programs. Additional features include blockchain technology integration, AI-powered optimization, and sustainable logistics solutions. Perfect for businesses seeking complete logistics support.',
+                link: '#supply-chain'
+            },
+            {
+                title: 'Project Cargo',
+                description: 'Specialized handling for oversized and complex cargo',
+                details: 'Expert handling of large-scale and complex logistics projects. Services include heavy lift operations, break-bulk cargo handling, and specialized equipment transport. Features comprehensive project planning, risk assessment, and custom solutions. Includes route surveys, permit acquisition, and specialized equipment arrangement. 24/7 project management and monitoring available. Suitable for industrial equipment, construction machinery, and infrastructure projects.',
+                link: '#project-cargo'
+            },
+            {
+                title: 'Customs Clearance',
+                description: 'Professional customs brokerage and documentation services',
+                details: 'Expert customs clearance services for smooth international trade. Comprehensive documentation handling and compliance management. Services include import/export documentation, duty calculation, and tariff classification. Features include electronic customs filing, real-time status updates, and regulatory compliance assistance.',
+                link: '#customs-clearance'
+            }
+        ];
+    </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu functionality
+            const menuBtn = document.querySelector('.nav-dropdown-btn');
+            const navDropdown = document.querySelector('.nav-dropdown-content');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                navDropdown.classList.toggle('show');
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-dropdown') && isMenuOpen) {
+                    isMenuOpen = false;
+                    navDropdown.classList.remove('show');
+                }
+            });
+
+            if (menuBtn && navDropdown) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+            }
+        });
+    </script>
+
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 1001;
+        }
+    </script>
+
+    <script>
+        // Handle floating contact button click
+        document.querySelector('.floating-contact').addEventListener('click', function(e) {
+            window.location.href = 'index.html#estimate-form';
+            e.preventDefault();
+        });
+    </script>
+
+    <style>
+        /* Floating Buttons Styles */
+        .floating-contact,
+        .floating-whatsapp,
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .floating-contact {
+            bottom: 160px;
+            background-color: #FF4742;
+            color: #fff;
+        }
+
+        .floating-whatsapp {
+            bottom: 90px;
+            background-color: #FF4742;
+            color: #fff;
+        }
+
+        .back-to-top {
+            bottom: 20px;
+            background-color: #FF4742;
+            color: #fff;
+        }
+
+        .floating-contact:hover,
+        .floating-whatsapp:hover,
+        .back-to-top:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .floating-contact i,
+        .floating-whatsapp i,
+        .back-to-top i {
+            font-size: 20px;
+            color: #fff;
+        }
+    </style>
+
+    <script>
+        // Back to Top Button functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) { // Show button after 300px scroll
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelector('.menu').addEventListener('click', function() {
+            document.querySelector('.nav-dropdown-content').classList.toggle('show');
+        });
+
+        // Close the dropdown if clicked outside
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelector('.menu').classList.remove('opened');
+                document.querySelector('.nav-dropdown-content').classList.remove('show');
+            }
+        });
+    </script>
+
+    <a href="https://wa.me/+919167524332" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <a href="#" onclick="openModal(event)" class="floating-contact">
+        <i class="fa fa-comments"></i>
+    </a>
+
+    <a href="#" class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <div class="modal-overlay" id="freightModal">
+        <div class="freight-modal">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="text-center">
+                <h2>Choose Your Freight Service</h2>
+                <p>Select the type of freight service that best suits your needs</p>
+            </div>
+            <div class="freight-options">
+                <a href="air-freight.html" class="freight-option">
+                    <i class="fas fa-plane"></i>
+                    <h4>Air Freight</h4>
+                    <p>Fast & Reliable Air Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="ocean-freight.html" class="freight-option">
+                    <i class="fas fa-ship"></i>
+                    <h4>Ocean Freight</h4>
+                    <p>Cost-Effective Sea Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="road-freight.html" class="freight-option">
+                    <i class="fas fa-truck"></i>
+                    <h4>Road Freight</h4>
+                    <p>Flexible Ground Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openModal(event) {
+            event.preventDefault();
+            document.getElementById('freightModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    
+        function closeModal() {
+            document.getElementById('freightModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    
+        // Close modal when clicking outside
+        document.getElementById('freightModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 
 </html>

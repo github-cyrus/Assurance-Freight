@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Transportion</title>
+    <title>Assurance Freight</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">                                                   
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="css/flaticon.css">
@@ -24,12 +24,1298 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/estimate-form.css">
+    <link rel="stylesheet" href="css/modern-estimate.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <style>
+        .slider_bg_1 {
+            background-image: url(img/banner/banner.png);
+        }
+        
+        .slider_bg_2 {
+            background-image: url(img/banner/banner_2.png);
+        }
+        
+        .slider_bg_3 {
+            background-image: url(img/banner/banner_3.png);
+        }
+        
+        .slider_area .single_slider {
+            height: 700px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+    <style>
+        .single_service {
+            margin-bottom: 30px;
+        }
+    </style>
+    <style>
+        :root {
+            --color-text: #fff;
+            --color-text-light: #a4abb4;
+            --color-stroke: #595f69;
+            --color-bg: #191919;
+            --color-highlight: #cf8c29;
+            --color-highlight-text: #b07724;
+            --color-highlight-hover: #432706;
+            --size-section-vertical-short: calc(38px + 1.25vw);
+            --size-none: 0px;
+        }
 
+        .transportaion_area {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            padding-top: var(--size-section-vertical-short);
+            padding-bottom: var(--size-section-vertical-short);
+            margin-top: -1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transport_active {
+            position: relative;
+        }
+
+        .single_transport {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .single_transport:hover {
+            background: rgba(207, 140, 41, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .single_transport h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--color-highlight);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .single_transport p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-text-light);
+            margin-bottom: 0;
+            min-height: 48px;
+        }
+
+        .single_transport .read_more {
+            color: var(--color-highlight);
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .single_transport .read_more:hover {
+            color: var(--color-highlight-hover);
+        }
+
+        .single_transport .read_more i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .single_transport .read_more:hover i {
+            transform: translateX(5px);
+        }
+
+        .single_transport::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-highlight) 0%, transparent 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .single_transport:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Owl Carousel Custom Navigation */
+        .transport_active .owl-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            z-index: 1;
+        }
+
+        .transport_active .owl-nav button {
+            width: 50px;
+            height: 50px;
+            background: rgba(207, 140, 41, 0.1) !important;
+            border-radius: 50%;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .transport_active .owl-nav button:hover {
+            background: var(--color-highlight) !important;
+        }
+
+        .transport_active .owl-nav button span {
+            color: var(--color-highlight);
+            font-size: 24px;
+            line-height: 40px;
+        }
+
+        .transport_active .owl-nav button:hover span {
+            color: #fff;
+        }
+
+        .transport_active .owl-nav .owl-prev {
+            left: -60px;
+        }
+
+        .transport_active .owl-nav .owl-next {
+            right: -60px;
+        }
+
+        @media (max-width: 991px) {
+            .single_transport {
+                padding: 30px;
+            }
+
+            .single_transport h3 {
+                font-size: 24px;
+            }
+
+            .transport_active .owl-nav button {
+                width: 40px;
+                height: 40px;
+            }
+
+            .transport_active .owl-nav .owl-prev {
+                left: -45px;
+            }
+
+            .transport_active .owl-nav .owl-next {
+                right: -45px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .single_transport {
+                padding: 25px;
+            }
+
+            .single_transport h3 {
+                font-size: 22px;
+            }
+
+            .transport_active .owl-nav {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+        .single_transport .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .single_transport .features-list li {
+            color: var(--color-text-light);
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .single_transport .features-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .single_transport .features-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-highlight);
+            box-shadow: 0 0 5px rgba(207, 140, 41, 0.3);
+        }
+
+        .single_transport .features-list li:hover::before {
+            transform: scale(1.2);
+            background: var(--color-highlight);
+            box-shadow: 0 0 8px rgba(207, 140, 41, 0.5);
+        }
+    </style>
+    <style>
+        .header-area {
+            padding: 8px 0;
+            background: #fff;
+            border-bottom: 1px solid #f6f6f6;
+        }
+
+        .header_bottom_border {
+            padding: 15px 0;
+            border-top: 1px solid #f6f6f6;
+        }
+
+        .header_right {
+            display: flex;
+            gap: 12px;
+        }
+
+        .short_contact_list ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .nav-dropdown-btn {
+            padding: 2px;
+            gap: 3px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 18px;
+            height: 2px;
+            margin: 2px 0;
+            background: #2E2E2E;
+            border-radius: 2px;
+        }
+    </style>
+    <style>
+        .header-area {
+            padding-top: 3px;
+        }
+    </style>
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" href="css/transportation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <style>
+        /* Dropdown Navigation Styles */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-dropdown-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 15px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 4px 0;
+            transition: 0.4s;
+            display: block;
+        }
+
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-dropdown-content ul li {
+            padding: 8px 20px;
+        }
+
+        .nav-dropdown-content ul li a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            color: #FF3414;
+        }
+
+        /* Adjust header right section layout */
+        .header_right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+        
+        .book_btn {
+            margin-right: 0;
+        }
+    </style>
+    <style>
+        /* Floating Buttons Styles */
+        .floating-contact,
+        .floating-whatsapp,
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #FF3414;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .floating-contact {
+            bottom: 160px;
+        }
+
+        .floating-whatsapp {
+            bottom: 90px;
+        }
+
+        .back-to-top {
+            bottom: 20px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .floating-contact:hover,
+        .floating-whatsapp:hover,
+        .back-to-top:hover {
+            background-color: #e62d0e;
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .floating-contact i,
+        .floating-whatsapp i,
+        .back-to-top i {
+            font-size: 20px;
+            line-height: 50px;
+        }
+    </style>
+    
+    <style>
+        /* Floating Message Icon Styles */
+        .floating-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff5e13;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .floating-message:hover {
+            background-color: #e64d00;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .floating-message i {
+            font-size: 20px;
+        }
+        @media (min-width: 1024px) { /* Adjust the width as per your requirement */
+    #nav1 {
+        display: none;
+    }
+}
+
+    </style>
+    <style>
+        .text_rotator_area {
+            padding: 60px 0;
+            background: #fff;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .text-rotator-heading {
+            font-family: 'Futura Heavy', sans-serif;
+            font-weight: 700;
+            font-size: 42px;
+            line-height: 1.4;
+            color: #16133E;
+            margin: 0 auto;
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .text-rotate-words {
+            position: relative;
+            display: block;
+            min-height: 60px;
+            width: 100%;
+            text-align: center;
+            perspective: 300px;
+            margin-top: 10px;
+        }
+
+        .text-rotate-word {
+            position: absolute;
+            opacity: 0;
+            transform-origin: 50% 100%;
+            transform: rotateX(180deg);
+            display: block;
+            width: 100%;
+            left: 0;
+            top: 0;
+            color: #FF3414;
+            transition: 0.8s cubic-bezier(0.3, 0, 0.3, 1);
+        }
+
+        .text-rotate-word.active {
+            position: relative;
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+
+        @media (max-width: 991px) {
+            .text-rotator-heading {
+                font-size: 32px;
+            }
+            .text-rotate-words {
+                min-height: 48px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .text_rotator_area {
+                padding: 40px 0;
+            }
+            .text-rotator-heading {
+                font-size: 26px;
+                line-height: 1.5;
+            }
+            .text-rotate-words {
+                min-height: 40px;
+            }
+        }
+    </style>
+    <style>
+        .modern-quote-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #FF3B30, #FF6347);
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
+            border: none;
+            min-width: 220px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-quote-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.6s ease;
+        }
+
+        .modern-quote-btn:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modern-quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 99, 71, 0.4);
+        }
+
+        .btn-text {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .btn-icon {
+            font-size: 20px;
+            z-index: 1;
+            animation: icon-bounce 1s infinite alternate;
+        }
+
+        @keyframes icon-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-3px); }
+        }
+    </style>
+    <style>
+        /* Header Styling */
+        .header-area {
+            padding: 8px 0;
+            background: #fff;
+            border-bottom: 1px solid #f6f6f6;
+        }
+
+        .header_right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .short_contact_list ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            margin-left: 15px;
+        }
+
+        .nav-dropdown-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 25px;
+            height: 3px;
+            background: #2E2E2E;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-content {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: #fff;
+            min-width: 200px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-dropdown-content ul li a {
+            display: block;
+            padding: 8px 20px;
+            color: #2E2E2E;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            background: #f8f9fa;
+            color: #FF3B30;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+    </style>
+    <style>
+        .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+        }
+
+        .line {
+            fill: none;
+            stroke: #2E2E2E;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 3;
+        }
+
+        .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+
+        .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 3;
+        }
+
+        .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+    </style>
+    <style>
+        /* Enhanced Freight Type Selector Styles */
+        .freight-type-selector {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .freight-type-card {
+            flex: 0 1 200px;
+            padding: 1.5rem;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .freight-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .freight-type-card.active {
+            border-color: #ff3d1c;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .freight-type-card i {
+            color: #ff3d1c;
+            margin-bottom: 1rem;
+        }
+
+        .freight-type-card h3 {
+            margin: 0;
+            color: #2c2c2c;
+            font-size: 1.25rem;
+        }
+    </style>
+    <style>
+        /* Form Styles */
+        .form-section {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #ff3d1c;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(255, 61, 28, 0.25);
+        }
+
+        .form-control:disabled {
+            background-color: #e9ecef;
+            opacity: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2c2c2c;
+        }
+
+        select.form-control {
+            cursor: pointer;
+        }
+
+        .load-type-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .load-type-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .load-type-btn.active {
+            border-color: #ff3d1c;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .load-type-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .load-type-btn h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2c2c2c;
+        }
+
+        .load-type-btn p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #ff3d1c;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #e63517;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 61, 28, 0.2);
+        }
+
+        .btn-submit:disabled {
+            background-color: #ffa599;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+    </style>
+    <style>
+        /* Footer Styles */
+        .footer {
+            background: #ffffff;
+            padding-top: 90px;
+        }
+
+        .footer_top {
+            padding-bottom: 90px;
+        }
+
+        .footer_widget {
+            margin-bottom: 30px;
+        }
+
+        .footer_title {
+            font-size: 22px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .footer_widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer_widget ul li {
+            color: #C7C7C7;
+            font-size: 15px;
+            line-height: 36px;
+        }
+
+        .newsletter_form {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .newsletter_form input {
+            width: 100%;
+            height: 45px;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #C7C7C7;
+            border-radius: 5px;
+        }
+
+        .newsletter_form button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 45px;
+            border: none;
+            font-size: 14px;
+            color: #fff;
+            background: #FF3414;
+            padding: 10px 22px;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            transition: 0.3s;
+        }
+
+        .newsletter_form button:hover {
+            background: #E42F12;
+        }
+
+        .newsletter_text {
+            font-size: 14px;
+            color: #C7C7C7;
+            line-height: 26px;
+            margin: 0;
+        }
+
+        .footer_border {
+            border-top: 1px solid #363636;
+            padding: 20px 0;
+        }
+
+        .copy_right {
+            font-size: 14px;
+            color: #C7C7C7;
+            margin: 0;
+            text-align: center;
+        }
+
+        .contact_location {
+            background: #F5F6F6;
+            padding: 100px 0;
+        }
+
+        .location_left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .location_left .logo {
+            margin-bottom: 30px;
+        }
+
+        .location_left ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .location_left ul li a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #FF3414;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .location_left ul li a:hover {
+            background: #E42F12;
+            transform: translateY(-3px);
+        }
+
+        .single_location {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .single_location h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2C2C2C;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .single_location h3 img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .single_location p {
+            font-size: 15px;
+            color: #727272;
+            line-height: 26px;
+            margin: 0;
+        }
+    </style>
+    <style>
+        /* Truck Container Styles */
+        .truck-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 12px 16px;
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .truck-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .truck-icon {
+            font-size: 48px;
+            color: var(--color-highlight);
+            margin-bottom: 20px;
+            animation: truckMove 2s infinite;
+        }
+
+        @keyframes truckMove {
+            0% {
+                transform: translateX(-10px);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+            100% {
+                transform: translateX(-10px);
+            }
+        }
+
+        .truck-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 15px;
+        }
+
+        .truck-description {
+            color: var(--color-text-light);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            opacity: 0;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            display: block;
+        }
+
+        .freight-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            background: #fff;
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 1000px;
+            width: 95%;
+            z-index: 10000;
+            opacity: 0;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active .freight-modal {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #FF3414;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .freight-options {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .freight-option {
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
+            background: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: #333;
+            border: 2px solid #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .freight-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FF3414, #ff6b4a);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .freight-option:hover {
+            transform: translateY(-10px);
+            border-color: #FF3414;
+            box-shadow: 0 20px 40px rgba(255, 52, 20, 0.15);
+        }
+
+        .freight-option:hover::before {
+            opacity: 0.03;
+        }
+
+        .freight-option > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .freight-option i {
+            font-size: 3.5em;
+            color: #FF3414;
+            margin-bottom: 25px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .freight-option:hover i {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .freight-option h4 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .freight-option p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .freight-option .btn-text {
+            color: #FF3414;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(255, 52, 20, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .freight-option:hover .btn-text {
+            background: #FF3414;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(255, 52, 20, 0.2);
+        }
+
+        .freight-option:hover .btn-text i {
+            transform: translateX(5px);
+        }
+
+        .freight-modal h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .freight-modal > .text-center > p {
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .freight-modal {
+                padding: 30px 20px;
+            }
+            
+            .freight-option {
+                min-width: 100%;
+            }
+
+            .freight-modal h2 {
+                font-size: 24px;
+            }
+
+            .freight-modal > .text-center > p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -39,77 +1325,85 @@
 
     <!-- header-start -->
     <header>
-        <div class="header-area ">
+        <div class="header-area">
             <div class="header-top_area d-none d-lg-block">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-4 col-lg-4">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="img/logo.svg" alt="">
+                                    <img src="img/logo.svg" loading="lazy" alt="Logo">
                                 </a>
                             </div>
                         </div>
                         <div class="col-xl-8 col-md-8">
-                            <div class="header_right d-flex align-items-center">
+                            <div class="header_right d-flex">
                                 <div class="short_contact_list">
                                     <ul>
-                                        <li><a href="#"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li>
-                                        <li><a href="#"> <i class="fa fa-phone"></i>+91 9167524332 </a></li>
+                                        <!-- <li><a href="#"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li> -->
+                                        <!-- <li><a href="#"> <i class="fa fa-phone"></i>+91 9167524332 </a></li> -->
                                     </ul>
                                 </div>
 
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="boxed-btn3-line" href="#estimate-form">Get Free Quote</a>
+                                    <a class="modern-quote-btn" href="#" onclick="openModal(event)">
+                                        <i class="fas fa-calculator btn-icon"></i>
+                                        <span class="btn-text">Assured QUOTE</span>
+                                    </a>
+                                </div>
+                                
+                                <div class="nav-dropdown">
+                                    <button class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                                        <svg width="30" height="30" viewBox="0 0 100 100">
+                                            <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                            <path class="line line2" d="M 20,50 H 80" />
+                                            <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                        </svg>
+                                    </button>
+                                    <div class="nav-dropdown-content" id="navDropdown">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="About.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="service_details.html">Service Details</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-12 d-block d-lg-none">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/logo.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-9 col-lg-9">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a href="index.html">home</a></li>
-                                            <li><a href="service.html">Services</a></li>
-                                            <li><a href="About.html">about</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="service_details.html">service details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment justify-content-end">
-                                    <div class="search_btn">
-                                        <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
-                                            <i class="ti-search"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
+            <div class="container">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-12 d-block d-lg-none">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logo.svg" loading="lazy" alt="Logo">
+                                </a>
                             </div>
                         </div>
+                        <div class="col-xl-9 col-lg-9">
+                            <div class="main-menu  d-none d-lg-block">
+                               <nav id="nav1">
+                                    <ul id="navigation">
+                                        <li><a href="index.html">home</a></li>
+                                        <li><a href="About.html">about</a></li>
+                                        <li><a href="service.html">Services</a></li>
+                                        <li><a href="service_details.html">service details</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav> 
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6">
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -118,15 +1412,42 @@
 
     <!-- slider_area_start -->
     <div class="slider_area">
-        <div class="single_slider  d-flex align-items-center slider_bg_1">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-xl-8">
-                        <div class="slider_text text-center justify-content-center">
-                            <p>For Personal & Business</p>
-                            <h3>Assurance Freight Logistic Service
-                            </h3>
-                            <a class="boxed-btn3" href="service.html">Our Services</a>
+        <div class="slider_active owl-carousel">
+            <div class="single_slider d-flex align-items-center slider_bg_1">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-8">
+                            <div class="slider_text text-center justify-content-center">
+                                <p>For Personal & Business</p>
+                                <h3>Reliable Freight Assurance Services</h3>
+                                <a class="boxed-btn3" href="service.html">Our Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider d-flex align-items-center slider_bg_2">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-8">
+                            <div class="slider_text text-center justify-content-center">
+                                <p>Global Logistics Solutions</p>
+                                <h3>Assuring India's Global Export Success</h3>
+                                <a class="boxed-btn3" href="service.html">Our Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider d-flex align-items-center slider_bg_3">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-8">
+                            <div class="slider_text text-center justify-content-center">
+                                <p>Expert Cargo Handling</p>
+                                <h3>Assured Safe & Secure Transport</h3>
+                                <a class="boxed-btn3" href="service.html">Our Services</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,43 +1456,49 @@
     </div>
     <!-- slider_area_end -->
 
-    <div class="transportaion_area">
+    <div class="text_rotator_area">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="single_transport">
-                        <div class="icon">
-                            <img src="img/svg_icon/airplane.png" alt="">
+                <div class="col-xl-12">
+                    <h2 class="text-rotator-heading text-center">
+                        Our Comprehensive 
+                        <div class="text-rotate-words">
+                            <span class="text-rotate-word">Logistics Solutions</span>
+                            <span class="text-rotate-word">Reliable Solutions</span>
+                            <span class="text-rotate-word">Efficient Solutions</span>
+                            <span class="text-rotate-word">Global Solutions</span>
                         </div>
-                        <h3>Transportation</h3>
-                        <p>Transportation connects people, goods, and services, driving trade and growth. Modern
-                            advancements make it faster, efficient, and sustainable for a connected world.</p>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="single_transport">
-                        <div class="icon">
-                            <img src="img/svg_icon/live.png" alt="">
-                        </div>
-                        <h3>Live Monitoring</h3>
-                        <p>Live monitoring provides real-time tracking and updates, ensuring efficiency, security, and
-                            immediate response in operations. It enhances decision-making and transparency across
-                            processes.</p>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="single_transport">
-                        <div class="icon">
-                            <img src="img/svg_icon/world.png" alt="">
-                        </div>
-                        <h3>Worldwide Service</h3>
-                        <p>Worldwide live monitoring ensures seamless global tracking and updates, enhancing efficiency,
-                            security, and decision-making across international operations.</p>
-                    </div>
+                    </h2>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- transport_area_start -->
+ 
+    <script>
+        $(document).ready(function(){
+            $('.transport_active').owlCarousel({
+                loop: true,
+                margin: 30,
+                nav: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    992: {
+                        items: 3
+                    }
+                }
+            });
+        });
+    </script>
 
     <div class="service_area">
         <div class="container">
@@ -189,7 +1516,7 @@
                     <div class="service_active owl-carousel">
                         <div class="single_service">
                             <div class="thumb">
-                                <img src="img/service/1.png" alt="">
+                                <img src="img/service/1.png" loading="lazy" alt="">
                             </div>
                             <div class="service_info">
                                 <h3><a href="service_details.html">Ocean Freight</a></h3>
@@ -199,7 +1526,7 @@
                         </div>
                         <div class="single_service">
                             <div class="thumb">
-                                <img src="img/service/2.png" alt="">
+                                <img src="img/service/2.png" loading="lazy" alt="">
                             </div>
                             <div class="service_info">
                                 <h3><a href="service_details.html">Land Transport</a></h3>
@@ -210,7 +1537,7 @@
                         </div>
                         <div class="single_service">
                             <div class="thumb">
-                                <img src="img/service/3.png" alt="">
+                                <img src="img/service/3.png" loading="lazy" alt="">
                             </div>
                             <div class="service_info">
                                 <h3><a href="service_details.html">Air Freight</a></h3>
@@ -232,10 +1559,8 @@
             <div class="row align-items-center">
                 <div class="col-xl-7 col-md-6">
                     <div class="action_heading">
-                        <h3>100% secure and safe</h3>
-                        <p>secure and safe transportation ensures the protection of goods and people throughout the
-                            journey, utilizing advanced technologies, strict safety protocols, and reliable handling to
-                            minimize risks and guarantee peace of mind.</p>
+                        <h3>100% Assured Protection & Uncompromising Quality</h3>
+                        <p>Secure and Safe Transportation Guarantees the Protection of Goods and People Throughout the Journey. By Leveraging Cutting-Edge Technologies, Rigorous Safety Protocols, and Trusted Handling Practices, We Minimize Risks and Assure Complete Peace of Mind.</p>
                     </div>
                 </div>
                 <div class="col-xl-5 col-md-6">
@@ -254,20 +1579,25 @@
                 <div class="row  align-items-center">
                     <div class="col-xl-5 col-lg-5 col-md-6">
                         <div class="about_image">
-                            <img src="img/about/about.png" alt="">
+                            <img src="img/about/about.png" loading="lazy" alt="">
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="features_info">
                             <h3>Why Choose Us?</h3>
-                            <p>Choose us for reliable, secure, and efficient transportation solutions. We prioritize
-                                safety, timely delivery, and customer satisfaction.
+                            <p>Choose us for reliable, secure, and efficient transportation solutions tailored to meet
+                                your needs. We are committed to delivering excellence by prioritizing safety, timely
+                                delivery, and unparalleled customer satisfaction.
                             </p>
                             <ul>
-                                <li> 100% secure and safe services. </li>
-                                <li> On-time, efficient delivery. </li>
-                                <li> Customer-centric approach with expert support.</li>
+                                <li>100% secure and safe services with careful handling of goods.</li>
+                                <li>On-time, efficient delivery to meet your deadlines.</li>
+                                <li>Eco-friendly practices to reduce environmental impact.</li>
+                                <li>Comprehensive coverage with reliable delivery to even remote locations.</li>
+                                <li>Transparent pricing with no hidden charges.</li>
+                                <li>Flexible solutions tailored to your unique requirements.</li>
                             </ul>
+
 
                             <div class="about_btn">
                                 <a class="boxed-btn3-line" href="about.html">About Us</a>
@@ -301,10 +1631,10 @@
                                 <p>"The best way to predict the future is to create it."</p>
                                 <div class="testmonial_author">
                                     <div class="thumb">
-                                        <img src="img/case/testmonial.svg" alt="">
+                                        <img src="img/case/testmonial1.svg" alt="">
                                     </div>
-                                    <h3>Vijay Patel</h3>
-                                    <span>Business Owner</span>
+                                    <h3>Savitri Patel</h3>
+                                    <span>Director Customer Service</span>
                                 </div>
                             </div>
                         </div>
@@ -318,8 +1648,8 @@
                                     <div class="thumb">
                                         <img src="img/case/testmonial.svg" alt="">
                                     </div>
-                                    <h3>Vijay Patel</h3>
-                                    <span>Business Owner</span>
+                                    <h3>Vijay k Patel</h3>
+                                    <span>CEO</span>
                                 </div>
                             </div>
                         </div>
@@ -332,10 +1662,10 @@
                                     counts."</p>
                                 <div class="testmonial_author">
                                     <div class="thumb">
-                                        <img src="img/case/testmonial.svg" alt="">
+                                        <img src="img/case/testmonial 2.svg" alt="">
                                     </div>
-                                    <h3> Vijay Patel</h3>
-                                    <span>Business Owner</span>
+                                    <h3> Pavitra Patel</h3>
+                                    <span>HR Manager</span>
                                 </div>
                             </div>
                         </div>
@@ -346,87 +1676,7 @@
     </div>
     <!-- /testimonial_area  -->
 
-    <!-- Estimate_area start  -->
-    <div class="Estimate_area overlay" id="estimate-form">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-5">
-                    <div class="Estimate_info">
-                        <h3>Get free Estimate</h3>
-                        <p>Get an accurate cost estimate tailored to your needs with no obligations. Experience hassle-free planning for your logistics solutions.</p>
-                        <a href="https://wa.me/919167524332" target="_blank" class="boxed-btn3">+91 9167524332</a>
-                    </div>
-                </div>
-                <div class="col-xl-8 col-lg-8 col-md-7">
-                    <div class="form">
-                        <!-- Added id="estimateForm" to the form -->
-                        <form id="estimateForm" method="POST">
-                            <div class="row">
-                                <div class="col-xl-6">
-                                    <div class="input_field">
-                                        <input type="text" name="name" placeholder="Your name" required>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="input_field">
-                                        <input type="email" name="email" placeholder="Email" required>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="input_field">
-                                        <select class="wide" name="product_type" required>
-                                            <option data-display="Product type">Product type</option>
-                                            <option value="small">small</option>
-                                            <option value="standard">standard</option>
-                                            <option value="high">high</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="input_field">
-                                        <select class="wide" name="product_size" required>
-                                            <option data-display="Product size">Product size</option>
-                                            <option value="M">M</option>
-                                            <option value="L">L</option>
-                                            <option value="XL">XL</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="input_field">
-                                        <input type="text" name="departure_city" placeholder="Start destination"
-                                            required>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="input_field">
-                                        <input type="text" name="delivery_city" placeholder="Final destination"
-                                            required>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="input_field">
-                                        <textarea name="message" placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="input_field">
-                                        <button class="boxed-btn3-line" type="submit">Send Estimate</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Add jQuery if not already included -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Add the form handler script -->
-    <script src="js/form-handler.js"></script>
-    <!-- contact_location  -->
+<!-- contact_location  -->
     <div class="contact_location">
         <div class="container">
             <div class="row">
@@ -434,21 +1684,22 @@
                     <div class="location_left">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/logo.svg" alt="">
                             </a>
                         </div>
                         <ul>
-                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
+                            <li><a href="https://www.facebook.com/share/18V3V5uUHJ/?mibextid=wwXIfr" target="_blank"> <i class="fab fa-facebook-f"></i> </a></li>
+                            <li><a href="https://www.instagram.com/invites/contact/?igsh=1ffx71yis8wcc&utm_content=wxpctqk" target="_blank"> <i class="fab fa-instagram"></i> </a></li>
+                            <li><a href="https://x.com/assuredfreight?s=11" target="_blank"> <i class="fab fa-x-twitter"></i> </a></li>
+                            <li><a href="http://www.youtube.com/@AssuranceFreight" target="_blank"> <i class="fab fa-youtube"></i> </a></li>
+                            <li><a href="https://www.linkedin.com/in/assurance-freight-13980b347/" target="_blank"> <i class="fab fa-linkedin-in"></i> </a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-3">
                     <div class="single_location">
                         <h3> <img src="img/icon/address.svg" alt=""> Location</h3>
-                        <p>Gala No. A5,
+                        <p>A5,
                             1st Floor,
                             Raj Industrial Estate,
                             Military Road,
@@ -466,10 +1717,8 @@
             </div>
         </div>
     </div>
-
     <!--/ contact_location  -->
-
-
+    
     <!-- footer start -->
     <footer class="footer">
         <div class="footer_top">
@@ -481,358 +1730,70 @@
                                 Services
                             </h3>
                             <ul>
-                                <li><a href="#">Air Transportation</a></li>
-                                <li><a href="#">Ocean Freight</a></li>
-                                <li><a href="#">Ocean Cargo</a></li>
-                                <li><a href="#">Logistics</a></li>
-                                <li><a href="#">Warehouse Moving</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Company
-                            </h3>
-                            <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#"> Testimonials</a></li>
-                                <li><a href="#"> Why Us?</a></li>
+                                <li>Freight Forwarding</li>
+                                <li>Supply Chain Management</li>
+                                <li>Last-Mile Delivery</li>
+                                <li>Customs Brokerage</li>
+                                <li>Inventory Management</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Industries
-                            </h3>
-                            <ul>
-                                <li><a href="#">Chemicals</a></li>
-                                <li><a href="#">Automotive</a></li>
-                                <li><a href="#"> Consumer Goods</a></li>
-                                <li><a href="#">Life Science</a></li>
-                                <li><a href="#">Foreign Trade</a></li>
-                            </ul>
+                        </div>
+                        <div class="col-xl-2 col-md-6 col-lg-2">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Company
+                                </h3>
+                                <ul>
+                                    <li>About Us</li>
+                                    <li>Our Values</li>
+                                    <li>Client Testimonials</li>
+                                    <li>Why Choose Us?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-lg-3">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Industries
+                                </h3>
+                                <ul>
+                                    <li>Retail and E-commerce</li>
+                                    <li>Manufacturing</li>
+                                    <li>Automotive Logistics</li>
+                                    <li>Healthcare Supply Chain</li>
+                                    <li>Food and Beverage Distribution</li>
+                                </ul>
+                        </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-lg-4">
+                            <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Subscribe
+                                </h3>
+                                <form action="https://api.web3forms.com/submit" method="POST" class="newsletter_form">
+                                    <input type="hidden" name="access_key" value="0eeac1b9-583e-4727-9a16-2c25b83b244f">
+                                    <input type="email" name="email" placeholder="Enter your mail" required>
+                                    <button type="submit">Subscribe</button>
+                                </form>
+                                <p class="newsletter_text">
+                                    Stay connected with us and receive latest updates about our services and special
+                                    offers.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6 col-lg-4">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Subscribe
-                            </h3>
-                            <form action="https://api.web3forms.com/submit" method="POST" class="newsletter_form">
-                                <input type="hidden" name="access_key" value="0eeac1b9-583e-4727-9a16-2c25b83b244f">
-                                <input type="email" name="email" placeholder="Enter your mail" required>
-                                <button type="submit">Subscribe</button>
-                            </form>
-                            <p class="newsletter_text">Stay connected with us and receive latest updates about our services and special offers.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row">
-                    <div class="col-xl-12">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--/ footer end  -->
-    <!-- Button trigger modal -->
-
-    <!-- Modal -->
-    <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="serch_form">
-                    <input type="text" id="searchInput" placeholder="Search services..." autocomplete="off">
-                    <button type="button" onclick="performSearch()">Search</button>
-                </div>
-                <div id="searchResults" class="search-results" style="max-height: 300px; overflow-y: auto; padding: 15px; display: none;">
-                    <!-- Results will appear here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- <div id="chat-container" class="chat-container">
-        <div class="chat-header" onclick="toggleChat()">
-            <span class="header-text">Chat with us</span>
-            <span class="minimize-button">−</span>
-        </div>
-        <div class="chat-body">
-            <div id="chat-messages" class="chat-messages">
-                <div class="message bot">
-                    Hello! How can I help you with your logistics needs today?
-                </div>
-            </div>
-            <div class="chat-input-container">
-                <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </div>
-    </div>
     
-    <style>
-    .chat-container {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 300px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        z-index: 1000;
-        overflow: hidden;
-    }
-    
-    .chat-header {
-        background: #2c3e50;
-        color: white;
-        padding: 10px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .chat-body {
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .chat-messages {
-        flex-grow: 1;
-        overflow-y: auto;
-        padding: 10px;
-    }
-    
-    .message {
-        margin: 5px;
-        padding: 10px;
-        border-radius: 10px;
-        max-width: 80%;
-    }
-    
-    .message.bot {
-        background: #f0f0f0;
-        align-self: flex-start;
-    }
-    
-    .message.user {
-        background: #3498db;
-        color: white;
-        margin-left: auto;
-    }
-    
-    .chat-input-container {
-        display: flex;
-        padding: 10px;
-        border-top: 1px solid #eee;
-    }
-    
-    #chat-input {
-        flex-grow: 1;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        margin-right: 5px;
-    }
-    
-    button {
-        padding: 8px 15px;
-        background: #3498db;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background: #2980b9;
-    }
-    
-    .minimized {
-        height: auto;
-    }
-    
-    .minimized .chat-body {
-        display: none;
-    }
-    </style>
-    
-    <script>
-    const responses = {
-        'hello': 'Hello! How can I help you today?',
-        'hi': 'Hi there! How can I assist you?',
-        'quote': 'I can help you get a quote! Please provide your shipping details or click here to use our quote form.',
-        'shipping': 'We offer various shipping services including air freight, sea freight, and land transportation. What type of shipping are you interested in?',
-        'tracking': 'To track your shipment, please provide your tracking number.',
-        'contact': 'You can reach us at +91 9167524332 or visit our office during business hours.',
-        'price': 'Shipping prices vary based on destination, weight, and service type. Would you like a custom quote?',
-        'default': "I'm not sure I understand. Could you please rephrase that or contact our support team for more detailed assistance?"
-    };
-    
-    let isChatOpen = true;
-    
-    function toggleChat() {
-        const container = document.getElementById('chat-container');
-        container.classList.toggle('minimized');
-        isChatOpen = !isChatOpen;
-        
-        const button = document.querySelector('.minimize-button');
-        button.textContent = isChatOpen ? '−' : '+';
-    }
-    
-    function sendMessage() {
-        const input = document.getElementById('chat-input');
-        const message = input.value.trim();
-        
-        if (message) {
-            addMessage(message, 'user');
-            respondToMessage(message);
-            input.value = '';
-        }
-    }
-    
-    function handleKeyPress(event) {
-        if (event.key === 'Enter') {
-            sendMessage();
-        }
-    }
-    
-    function addMessage(message, sender) {
-        const messagesDiv = document.getElementById('chat-messages');
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', sender);
-        messageElement.textContent = message;
-        messagesDiv.appendChild(messageElement);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-    
-    function respondToMessage(message) {
-        const lowerMessage = message.toLowerCase();
-        let response = responses.default;
-        
-        // Check for keywords in the message
-        for (let key in responses) {
-            if (lowerMessage.includes(key)) {
-                response = responses[key];
-                break;
-            }
-        }
-        
-        // Simulate typing delay
-        setTimeout(() => {
-            addMessage(response, 'bot');
-        }, 500);
-    }
-    </script> -->
-
-    <script>
-        // Define searchable content
-        const searchableContent = [
-            {
-                title: 'Ocean Freight',
-                description: 'International shipping via sea routes',
-                link: '#ocean-freight'
-            },
-            {
-                title: 'Air Freight',
-                description: 'Fast international air cargo services',
-                link: '#air-freight'
-            },
-            {
-                title: 'Land Transport',
-                description: 'Domestic and cross-border land transportation',
-                link: '#land-transport'
-            },
-            {
-                title: 'FCL Shipping',
-                description: 'Full Container Load shipping services',
-                link: '#fcl-shipping'
-            },
-            {
-                title: 'LCL Shipping',
-                description: 'Less than Container Load shipping options',
-                link: '#lcl-shipping'
-            },
-            {
-                title: 'Customs Clearance',
-                description: 'Import and export customs documentation services',
-                link: '#customs-clearance'
-            }
-        ];
-        
-        // Search functionality
-        function performSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            const query = searchInput.value.toLowerCase().trim();
-            
-            if (query === '') {
-                searchResults.style.display = 'none';
-                return;
-            }
-        
-            const results = searchableContent.filter(item => 
-                item.title.toLowerCase().includes(query) || 
-                item.description.toLowerCase().includes(query)
-            );
-        
-            displayResults(results);
-        }
-        
-        // Display results
-        function displayResults(results) {
-            const searchResults = document.getElementById('searchResults');
-            searchResults.style.display = 'block';
-            
-            if (results.length === 0) {
-                searchResults.innerHTML = '<div class="no-results">No results found</div>';
-                return;
-            }
-        
-            const resultsHTML = results.map(item => `
-                <div class="result-item" onclick="window.location.href='${item.link}'">
-                    <h5>${item.title}</h5>
-                    <p>${item.description}</p>
-                </div>
-            `).join('');
-        
-            searchResults.innerHTML = resultsHTML;
-        }
-        
-        // Add event listener for real-time search
-        document.getElementById('searchInput').addEventListener('input', performSearch);
-        
-        // Close search results when clicking outside
-        document.addEventListener('click', function(event) {
-            const searchResults = document.getElementById('searchResults');
-            const searchInput = document.getElementById('searchInput');
-            
-            if (!event.target.closest('.modal-content')) {
-                searchResults.style.display = 'none';
-                searchInput.value = '';
-            }
-        });
-        </script>
-
-    <!-- JS here -->
+        </footer>
+    <!-- Add jQuery if not already included -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <!-- Plugin JS -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/ajax-form.js"></script>
     <script src="js/waypoints.min.js"></script>
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
@@ -843,28 +1804,262 @@
     <script src="js/jquery.slicknav.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/plugins.js"></script>
-    <!-- <script src="js/gijgo.min.js"></script> -->
-    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    
+    <!-- SweetAlert2 for popups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Contact form validation -->
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Text Rotator Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const words = document.querySelectorAll('.text-rotate-word');
+            let currentIndex = 0;
+            const rotationInterval = 2500; // 2.5 seconds per word
+
+            function rotateWords() {
+                // Remove active class from current word
+                words[currentIndex].classList.remove('active');
+
+                // Update index
+                currentIndex = (currentIndex + 1) % words.length;
+
+                // Add active class to new word
+                words[currentIndex].classList.add('active');
+            }
+
+            // Initialize first word
+            words[0].classList.add('active');
+
+            // Start rotation
+            setInterval(rotateWords, rotationInterval);
+        });
+    </script>
 
     <!--contact js-->
     <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
 
+    <script>
+        $(document).ready(function(){
+            $('.slider_active').owlCarousel({
+                loop:true,
+                margin:0,
+                items:1,
+                autoplay:true,
+                navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
+                nav:true,
+                dots:false,
+                autoplayHoverPause: true,
+                autoplaySpeed: 800,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:false
+                    },
+                    767:{
+                        items:1,
+                        nav:false
+                    },
+                    992:{
+                        items:1,
+                        nav:false
+                    },
+                    1200:{
+                        items:1,
+                        nav:true
+                    },
+                    1600:{
+                        items:1,
+                        nav:true
+                    }
+                }
+            });
 
-    <script src="js/main.js"></script>
-    <script src="estimate.js"></script>
+            // Initialize Transportation Carousel
+            $('.transport_active').owlCarousel({
+                loop: true,
+                margin: 30,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: false,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    },
+                    992: {
+                        items: 3
+                    }
+                }
+            });
+        });
+    </script>
 
+    <script>
+        // Menu functionality
+        const menuBtn = document.querySelector('.menu');
+        const navDropdown = document.querySelector('.nav-dropdown-content');
+        let isMenuOpen = false;
 
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            menuBtn.classList.toggle('opened');
+            menuBtn.setAttribute('aria-expanded', isMenuOpen);
+            navDropdown.classList.toggle('show');
+        }
+
+        function closeMenu() {
+            if (isMenuOpen) {
+                isMenuOpen = false;
+                menuBtn.classList.remove('opened');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                navDropdown.classList.remove('show');
+            }
+        }
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                closeMenu();
+            }
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        });
+    </script>
+    <!-- Modal -->
+    <div class="modal-overlay" id="freightModal">
+        <div class="freight-modal">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="text-center">
+                <h2>Choose Your Freight Service</h2>
+                <p>Select the type of freight service that best suits your needs</p>
+            </div>
+            <div class="freight-options">
+                <a href="air-freight.html" class="freight-option">
+                    <i class="fas fa-plane"></i>
+                    <h4>Air Freight</h4>
+                    <p>Fast & Reliable Air Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="ocean-freight.html" class="freight-option">
+                    <i class="fas fa-ship"></i>
+                    <h4>Ocean Freight</h4>
+                    <p>Cost-Effective Sea Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="road-freight.html" class="freight-option">
+                    <i class="fas fa-truck"></i>
+                    <h4>Road Freight</h4>
+                    <p>Flexible Ground Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(event) {
+            event.preventDefault();
+            document.getElementById('freightModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('freightModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('freightModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/+919167524332" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     
+    <a href="#" onclick="openModal(event)" class="floating-contact">
+        <i class="fa fa-comments"></i>
+    </a>
 
+    <a href="#" class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
 
+    <script>
+        // Back to Top Button functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) { // Show button after 300px scroll
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
 
-
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+     <!-- Add jQuery if not already included -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+     
+     <!-- Firebase SDK -->
+     <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+     <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+     
+     <!-- Custom Firebase integration -->
+     <script type="module" src="js/firebase-estimate.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Firebase Integration -->
+    <script type="module" src="js/firebase-config.js"></script>
 </body>
 
 </html>

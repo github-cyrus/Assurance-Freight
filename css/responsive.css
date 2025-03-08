@@ -1,0 +1,73 @@
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .freight-type-selector {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .freight-type-card {
+        width: 100%;
+        max-width: none;
+    }
+
+    .load-type-selector {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .load-type-btn {
+        width: 100%;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    .commodity-selectors {
+        flex-direction: column;
+    }
+
+    .select-container {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .col, .col-md-6 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .btn-submit {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .freight-type-card i {
+        font-size: 1.5rem;
+    }
+
+    .freight-type-card h3 {
+        font-size: 1.125rem;
+    }
+
+    .load-type-btn h4 {
+        font-size: 1.125rem;
+    }
+
+    .load-type-btn p {
+        font-size: 0.813rem;
+    }
+}

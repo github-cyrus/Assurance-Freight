@@ -1,0 +1,237 @@
+/* Transportation Area Styles */
+.transportaion_area {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.section_title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section_title h3 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #1F1F1F;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section_title h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #FF3414;
+}
+
+.section_title p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+.single_transport {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px 30px;
+    margin: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 450px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.single_transport::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #FF3414, #FF6B6B);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.single_transport:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.single_transport:hover::before {
+    opacity: 1;
+}
+
+.single_transport h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1F1F1F;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.single_transport h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #FF3414;
+    transition: width 0.3s ease;
+}
+
+.single_transport:hover h3::after {
+    width: 100px;
+}
+
+.single_transport p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    color: #555;
+    font-size: 15px;
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #FF3414;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.single_transport:hover .features-list li::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.features-list li:hover {
+    color: #FF3414;
+    padding-left: 35px;
+}
+
+/* Owl Carousel Navigation */
+.transport_active {
+    position: relative;
+    padding: 0 50px;
+}
+
+.transport_active .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.transport_active .owl-nav button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #fff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.transport_active .owl-nav button span {
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.transport_active .owl-nav .owl-prev {
+    left: -25px;
+}
+
+.transport_active .owl-nav .owl-next {
+    right: -25px;
+}
+
+.transport_active .owl-nav button:hover {
+    background: #FF3414 !important;
+}
+
+.transport_active .owl-nav button:hover span {
+    color: #fff;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUp {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .section_title h3 {
+        font-size: 36px;
+    }
+    
+    .single_transport {
+        padding: 30px 25px;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 767px) {
+    .transportaion_area {
+        padding: 80px 0;
+    }
+    
+    .section_title h3 {
+        font-size: 32px;
+    }
+    
+    .single_transport {
+        padding: 25px 20px;
+        min-height: auto;
+    }
+    
+    .transport_active {
+        padding: 0 30px;
+    }
+}

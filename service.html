@@ -7,16 +7,15 @@
     <title>Transportion</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/nice-select.css">
     <link rel="stylesheet" href="css/flaticon.css">
@@ -25,13 +24,992 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/quote-styles.css">
     <script src="quote-button.js"></script>
+    <style>
+        /* Dropdown Navigation Styles */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        .nav-dropdown-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 15px;
+        }
+
+        .nav-dropdown-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #000;
+            margin: 4px 0;
+            transition: 0.4s;
+            display: block;
+        }
+
+        .nav-dropdown-content {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: #fff;
+            width: 160px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 0;
+            margin-top: 10px;
+            display: none;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-dropdown-content ul li {
+            padding: 0;
+        }
+
+        .nav-dropdown-content ul li a {
+            display: block;
+            padding: 8px 20px;
+            height: 40px;
+            line-height: 24px;
+            color: #2E2E2E;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: normal;
+            font-style: normal;
+            background-color: transparent;
+            outline: medium none;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+
+        /* Adjust header right section layout */
+        .header_right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .book_btn {
+            margin-right: 0;
+        }
+    </style>
+
+    <style>
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-dropdown-content ul li {
+            padding: 8px 20px;
+        }
+    </style>
+
+
+    <style>
+        /* Enhanced Text Rotator Styles */
+        .text-rotator-section {
+            text-align: center;
+            padding: 40px 0 30px 0;
+            margin: 40px 0 30px 0;
+            background: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Slider Area Bottom Spacing */
+        .slider_area {
+            margin-bottom: 30px;
+        }
+
+        /* Add a subtle background effect */
+        .text-rotator-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(247, 247, 247, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+        }
+
+        .text-rotator-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ld-fh-element {
+            font-size: 3em;
+            font-weight: 700;
+            color: #16133e;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .txt-rotate-keywords {
+            display: inline-block;
+            position: relative;
+            color: #FF3414;
+            min-height: 60px;
+            min-width: 300px;
+            vertical-align: middle;
+        }
+
+        .txt-rotate-keyword {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+        }
+
+        .txt-rotate-keyword.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .txt-rotate-keyword.lqd-keyword-slide-out {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition-duration: 0.4s;
+        }
+
+        .txt-rotate-keyword.is-next {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .txt-rotate-keyword span {
+            display: block;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* Add highlight effect */
+        .lqd-highlight-classic {
+            position: relative;
+            padding: 0 0.1em;
+        }
+
+        .lqd-highlight-grow-left::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0.4em;
+            position: absolute;
+            bottom: -0.1em;
+            left: -0.1em;
+            right: -0.1em;
+            background: rgba(255, 52, 20, 0.15);
+            z-index: -1;
+            animation: highlightGrow 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes highlightGrow {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: calc(100% + 0.2em);
+            }
+        }
+    </style>
+
+    <style>
+        /* Text Rotator Styles */
+        .text-rotator-section {
+            text-align: center;
+            padding: 40px 0 30px 0;
+            background: #fff;
+        }
+
+        .ld-fh-element {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #16133e;
+            margin-bottom: 30px;
+        }
+
+        .txt-rotate-keywords {
+            display: inline-block;
+            position: relative;
+            color: #FF3414;
+        }
+
+        .txt-rotate-keyword {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .txt-rotate-keyword.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .txt-rotate-keyword.lqd-keyword-slide-out {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .txt-rotate-keyword.is-next {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+    <style>
+        /* Remove gap between header and banner */
+        .header-area {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .slider_area {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        /* Ensure header is above slider */
+        .header-area {
+            position: relative;
+            z-index: 100;
+        }
+
+        .slider_area {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Remove any potential spacing from header bottom border */
+        .header_bottom_border {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+    </style>
+
+    <style>
+        .service_area {
+            padding: 100px 0;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .service_area .single_service {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service_area .single_service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service_area .service_icon {
+            width: 85px;
+            height: 85px;
+            background: #FF3414;
+            color: #fff;
+            font-size: 35px;
+            line-height: 85px;
+            text-align: center;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .service_area .single_service:hover .service_icon {
+            background: #16133E;
+            transform: rotateY(360deg);
+        }
+
+        .service_area .single_service h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #16133E;
+            transition: all 0.3s ease;
+        }
+
+        .service_area .single_service:hover h3 {
+            color: #FF3414;
+        }
+
+        .service_area .single_service p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+            margin: 0;
+        }
+
+        .service_area .section_title {
+            margin-bottom: 60px;
+        }
+
+        .service_area .section_title h3 {
+            font-size: 42px;
+            line-height: 1.3;
+            color: #16133E;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service_area .section_title h3:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: #FF3414;
+            transform: translateX(-50%);
+        }
+
+        .service_area .row.mt-4 {
+            margin-top: 2rem !important;
+        }
+
+        @media (max-width: 991px) {
+            .service_area {
+                padding: 70px 0;
+            }
+
+            .service_area .single_service {
+                padding: 30px 20px;
+                min-height: 300px;
+            }
+
+            .service_area .service_icon {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+                line-height: 70px;
+            }
+
+            .service_area .single_service h3 {
+                font-size: 20px;
+            }
+
+            .service_area .single_service p {
+                font-size: 15px;
+            }
+
+            .service_area .section_title h3 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .service_area {
+                padding: 50px 0;
+            }
+
+            .service_area .single_service {
+                min-height: auto;
+                margin-bottom: 25px;
+            }
+
+            .service_area .section_title h3 {
+                font-size: 30px;
+            }
+        }
+    </style>
 
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <style>
+        /* Floating Buttons Styles */
+        .floating-contact,
+        .floating-whatsapp,
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .floating-contact {
+            bottom: 160px;
+            background-color: #FF4742;
+            color: #fff;
+        }
+
+        .floating-whatsapp {
+            bottom: 90px;
+            background-color: #FF4742;
+            color: #fff;
+        }
+
+        .back-to-top {
+            bottom: 20px;
+            background-color: #FF4742;
+            color: #fff;
+        }
+
+        .floating-contact:hover,
+        .floating-whatsapp:hover,
+        .back-to-top:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .floating-contact i,
+        .floating-whatsapp i,
+        .back-to-top i {
+            font-size: 20px;
+            color: #fff;
+        }
+    </style>
+    <style>
+        /* Hide navigation on desktop for service page */
+        @media (min-width: 992px) {
+            .service-page .main-menu {
+                display: none !important;
+            }
+        }
+    </style>
+    <style>
+        .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu svg {
+            transition: transform 0.3s;
+        }
+
+        .menu.opened svg {
+            transform: rotate(45deg);
+        }
+
+        .line {
+            fill: none;
+            stroke: #000;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line1 {
+            stroke-dasharray: 60 207;
+        }
+
+        .line2 {
+            stroke-dasharray: 60 60;
+        }
+
+        .line3 {
+            stroke-dasharray: 60 207;
+        }
+
+        .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+        }
+
+        .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+        }
+
+        .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+        }
+
+        /* Nav Dropdown Styles */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: #fff;
+            width: 200px;
+            height: 300px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 15px 0;
+            margin-top: 10px;
+        }
+
+        .nav-dropdown-content.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .nav-dropdown-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-dropdown-content ul li {
+            padding: 12px 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-content ul li:hover {
+            background-color: #f8f9fa;
+        }
+
+        .nav-dropdown-content ul li a {
+            color: #000;
+            text-decoration: none;
+            padding: 12px 16px;
+            display: block;
+            font-weight: normal;
+        }
+
+        .nav-dropdown-content ul li a:hover {
+            color: #FF3414;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu Container */
+        .mobile_menu {
+            display: none;
+        }
+
+        @media (max-width: 991px) {
+            .mobile_menu {
+                display: block;
+                text-align: right;
+                padding: 15px;
+            }
+
+            .nav-dropdown {
+                display: inline-block;
+            }
+
+            .nav-dropdown-content {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 200px;
+            }
+        }
+    </style>
+    <style>
+        .menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+        }
+
+        .line {
+            fill: none;
+            stroke: #2E2E2E;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 3;
+        }
+
+        .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 3;
+        }
+
+        .opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+
+        .opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 3;
+        }
+
+        .opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 3;
+        }
+    </style>
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            opacity: 0;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            display: block;
+        }
+
+        .freight-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            background: #fff;
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 1000px;
+            width: 95%;
+            z-index: 10000;
+            opacity: 0;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active .freight-modal {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #FF3414;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .freight-options {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .freight-option {
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
+            background: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: #333;
+            border: 2px solid #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .freight-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FF3414, #ff6b4a);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .freight-option:hover {
+            transform: translateY(-10px);
+            border-color: #FF3414;
+            box-shadow: 0 20px 40px rgba(255, 52, 20, 0.15);
+        }
+
+        .freight-option:hover::before {
+            opacity: 0.03;
+        }
+
+        .freight-option>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .freight-option i {
+            font-size: 3.5em;
+            color: #FF3414;
+            margin-bottom: 25px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .freight-option:hover i {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .freight-option h4 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .freight-option p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .freight-option .btn-text {
+            color: #FF3414;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(255, 52, 20, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .freight-option:hover .btn-text {
+            background: #FF3414;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(255, 52, 20, 0.2);
+        }
+
+        .freight-option:hover .btn-text i {
+            transform: translateX(5px);
+        }
+
+        .freight-modal h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .freight-modal>.text-center>p {
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .freight-modal {
+                padding: 30px 20px;
+            }
+
+            .freight-option {
+                min-width: 100%;
+            }
+
+            .freight-modal h2 {
+                font-size: 24px;
+            }
+
+            .freight-modal>.text-center>p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <style>
+        /* Mobile Header Styles */
+        @media (max-width: 991px) {
+            .header-area .container {
+                padding: 15px;
+            }
+
+            .mobile-header-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .logo {
+                margin: 0;
+                padding: 0;
+            }
+
+            .logo img {
+                max-height: 45px;
+                width: auto;
+            }
+
+            .mobile_menu {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+
+            .nav-dropdown {
+                margin-left: 0;
+            }
+
+            .menu {
+                padding: 0;
+                margin: 0;
+            }
+        }
+    </style>
+    <style>
+        /* Mobile Menu Button Styles */
+        @media (max-width: 991px) {
+            .menu {
+                padding: 10px;
+                margin: 0;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 71, 66, 0.1);
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            .menu:hover {
+                background: rgba(255, 71, 66, 0.15);
+            }
+
+            .menu svg {
+                width: 35px;
+                height: 35px;
+            }
+
+            .line {
+                stroke-width: 3.5;
+            }
+
+            .mobile-header-wrapper {
+                padding: 12px 15px;
+            }
+
+            .nav-dropdown-content {
+                top: calc(100% + 10px);
+                right: 0;
+                min-width: 220px;
+            }
+
+            .nav-dropdown-content ul li a {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="service-page">
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -39,77 +1017,88 @@
 
     <!-- header-start -->
     <header>
-        <div class="header-area ">
+        <div class="header-area">
             <div class="header-top_area d-none d-lg-block">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-4 col-lg-4">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="img/logo.svg" loading="lazy" alt="Logo">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-md-8">
-                            <div class="header_right d-flex align-items-center">
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="header_right d-flex">
                                 <div class="short_contact_list">
                                     <ul>
-                                        <li><a href="mailto:info@assurancefreight.in" target="_blank"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li>
-                                        <li><a href="https://wa.me/919167524332" target="_blank"> <i class="fa fa-phone"></i> +91 9167524332</a></li>
+                                        <!-- <li><a href="#"> <i class="fa fa-envelope"></i> info@assurancefreight.in</a></li> -->
+                                        <!-- <li><a href="#"> <i class="fa fa-phone"></i>+91 9167524332 </a></li> -->
                                     </ul>
                                 </div>
 
                                 <div class="book_btn d-none d-lg-block">
-                                    <a class="boxed-btn3-line" href="javascript:void(0);">Get Free Quote</a>
+                                    <a class="modern-quote-btn" href="#" onclick="openModal(event)">
+                                        <i class="fas fa-calculator btn-icon"></i>
+                                        <span class="btn-text">ASSURED QUOTE</span>
+                                    </a>
+                                </div>
+
+                                <div class="nav-dropdown">
+                                    <button class="menu" onclick="return false;" aria-label="Menu"
+                                        aria-expanded="false">
+                                        <svg width="40" height="40" viewBox="0 0 100 100">
+                                            <path class="line line1"
+                                                d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                            <path class="line line2" d="M 20,50 H 80" />
+                                            <path class="line line3"
+                                                d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                        </svg>
+                                    </button>
+                                    <div class="nav-dropdown-content">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="About.html">About</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="service_details.html">Service Details</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="sticky-header" class="main-header-area">
+            <div class="d-block d-lg-none">
                 <div class="container">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-12 d-block d-lg-none">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/logo.png" alt="">
-                                    </a>
+                    <div class="mobile-header-wrapper">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="img/logo.svg" loading="lazy" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="mobile_menu">
+                            <div class="nav-dropdown">
+                                <button class="menu" onclick="toggleMobileMenu()" aria-label="Menu">
+                                    <svg width="40" height="40" viewBox="0 0 100 100">
+                                        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                        <path class="line line2" d="M 20,50 H 80" />
+                                        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                    </svg>
+                                </button>
+                                <div class="nav-dropdown-content" id="mobileNavDropdown">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="About.html">About</a></li>
+                                        <li><a href="service.html">Services</a></li>
+                                        <li><a href="service_details.html">Service Details</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="col-xl-9 col-lg-9">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a  href="index.html">home</a></li>
-                                            <li><a  href="service.html">Services</a></li>
-                                            <li><a href="About.html">about</a></li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="service_details.html">service details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="Appointment justify-content-end">
-                                    <div class="search_btn">
-                                        <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
-                                            <i class="ti-search"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -139,7 +1128,8 @@
                         </div>
                         <div class="service_info">
                             <h3><a href="service_details.html">Ocean Freight</a></h3>
-                            <p>Reliable and cost-efficient, ocean freight ensures the seamless transportation of large shipments across international waters.</p>
+                            <p>Reliable and cost-efficient, ocean freight ensures the seamless transportation of large
+                                shipments across international waters.</p>
                         </div>
                     </div>
                 </div>
@@ -150,7 +1140,8 @@
                         </div>
                         <div class="service_info">
                             <h3><a href="service_details.html">Land Transport</a></h3>
-                            <p>Efficient and flexible, land transport connects regions through road and rail, enabling quick and secure deliveries.</p>
+                            <p>Efficient and flexible, land transport connects regions through road and rail, enabling
+                                quick and secure deliveries.</p>
                         </div>
                     </div>
                 </div>
@@ -162,7 +1153,8 @@
                         </div>
                         <div class="service_info">
                             <h3><a href="service_details.html">Air Freight</a></h3>
-                            <p>Fast and dependable, air freight caters to time-sensitive shipments, ensuring global connectivity with speed and precision.</p>
+                            <p>Fast and dependable, air freight caters to time-sensitive shipments, ensuring global
+                                connectivity with speed and precision.</p>
                         </div>
                     </div>
                 </div>
@@ -173,7 +1165,8 @@
                         </div>
                         <div class="service_info">
                             <h3><a href="service_details.html">3PL</a></h3>
-                            <p>Comprehensive 3PL services streamline supply chains with warehousing, transportation, and logistics management expertise.</p>
+                            <p>Comprehensive 3PL services streamline supply chains with warehousing, transportation, and
+                                logistics management expertise.</p>
                         </div>
                     </div>
                 </div>
@@ -184,7 +1177,8 @@
                         </div>
                         <div class="service_info">
                             <h3><a href="service_details.html">Iso Tank</a></h3>
-                            <p>ISO tanks provide a safe and efficient solution for transporting bulk liquids, ensuring compliance with international standards.</p>
+                            <p>ISO tanks provide a safe and efficient solution for transporting bulk liquids, ensuring
+                                compliance with international standards.</p>
                         </div>
                     </div>
                 </div>
@@ -195,8 +1189,9 @@
                             <img src="img/service/6.png" alt="">
                         </div>
                         <div class="service_info">
-                            <h3><a href="service_details.html">Custom Broking</a></h3>
-                            <p>Expert custom broking services simplify import/export processes with seamless documentation and regulatory compliance.</p>
+                            <h3><a href="service_details.html">Expert Custom Clearance</a></h3>
+                            <p>Expert custom broking services simplify import/export processes with seamless
+                                documentation and regulatory compliance.</p>
                         </div>
                     </div>
                 </div>
@@ -205,21 +1200,118 @@
     </div>
     <!--/ service_area  -->
 
+
+
+    <div class="service_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-50 text-center">
+                        <h3>Services We Offer</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3>Air Freight</h3>
+                        <p>Fast and affordable international air freight shipments throughout the world. TGL is
+                            accredited by the International Air Transport Association (IATA).</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3>Sea Freight</h3>
+                        <p>Secure and cost-effective sea freight services, including Full Container Load (FCL) and Less
+                            than Container Load (LCL) shipments from all international ports.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Domestic Freight</h3>
+                        <p>Reliable domestic freight services, whether by rail, road, air, sea, or intermodal transport.
+                            A timely and cost-effective local freight solution across all continents.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Expert Custom Clearance</h3>
+                        <p>TGL offers hassle-free services for the clearance of imported or exported cargo in compliance
+                            with all international trade polices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h3>Warehouse Storage</h3>
+                        <p>We provide 3PL and 4PL warehousing, including e-commerce fulfillment, inventory management,
+                            repacking, and secure storage with seamless logistics integration.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h3>Supply Chain Management</h3>
+                        <p>Optimise your logistics operations with TGL's supply chain consultancy. Our experts analyze
+                            processes to enhance efficiency and reduce costs.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-truck-loading"></i>
+                        </div>
+                        <h3>Oversized Cargo</h3>
+                        <p>Transporting oversized cargo presents unique challenges that require specialised expertise
+                            and equipment. At Think Global Logistics, we understand the complexities involved.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Project Management</h3>
+                        <p>We specialise in delivering tailored project management services designed to meet the unique
+                            logistics needs of our clients, covering every stage of your supply chain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- contact_action_area  -->
     <div class="contact_action_area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-7 col-md-6">
                     <div class="action_heading">
-                        <h3>100% secure and safe</h3>
-                        <p>secure and safe transportation ensures the protection of goods and people throughout the
-                            journey, utilizing advanced technologies, strict safety protocols, and reliable handling to
-                            minimize risks and guarantee peace of mind.</p>
+                        <h3>100% Assured Protection & Uncompromising Quality</h3>
+                        <p>Secure and Safe Transportation Guarantees the Protection of Goods and People Throughout the
+                            Journey. By Leveraging Cutting-Edge Technologies, Rigorous Safety Protocols, and Trusted
+                            Handling Practices, We Minimize Risks and Assure Complete Peace of Mind.</p>
                     </div>
                 </div>
                 <div class="col-xl-5 col-md-6">
                     <div class="call_add_action">
-                        <a href="https://wa.me/919167524332" target="_blank" class="boxed-btn3">+91 9167524332</a>
+                        <a href="https://wa.me/919167524332" class="boxed-btn3" target="_blank">+91 9167524332</a>
                     </div>
                 </div>
             </div>
@@ -240,15 +1332,18 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="features_info">
                             <h3>Why Choose Us?</h3>
-                            <p>Choose us for reliable, secure, and efficient transportation solutions. We prioritize
-                                safety, timely delivery, and customer satisfaction.
+                            <p>Choose us for reliable, secure, and efficient transportation solutions tailored to meet
+                                your needs. We are committed to delivering excellence by prioritizing safety, timely
+                                delivery, and unparalleled customer satisfaction.
                             </p>
                             <ul>
-                                <li> 100% secure and safe services. </li>
-                                <li> On-time, efficient delivery. </li>
-                                <li> Customer-centric approach with expert support.</li>
+                                <li>100% secure and safe services with careful handling of goods.</li>
+                                <li>On-time, efficient delivery to meet your deadlines.</li>
+                                <li>Eco-friendly practices to reduce environmental impact.</li>
+                                <li>Comprehensive coverage with reliable delivery to even remote locations.</li>
+                                <li>Transparent pricing with no hidden charges.</li>
+                                <li>Flexible solutions tailored to your unique requirements.</li>
                             </ul>
-
                             <div class="about_btn">
                                 <a class="boxed-btn3-line" href="about.html">About Us</a>
                             </div>
@@ -261,12 +1356,12 @@
     <!--/ chose_area  -->
 
     <!-- counter_area  -->
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
     <!-- /counter_area  -->
 
- 
+
     <!-- Estimate_area end  -->
 
     <!-- contact_location  -->
@@ -277,21 +1372,32 @@
                     <div class="location_left">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="img/logo.png" alt="">
+                                <img src="img/logo.svg" alt="">
                             </a>
                         </div>
                         <ul>
-                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-youtube"></i> </a></li>
+                            <li><a href="https://www.facebook.com/share/18V3V5uUHJ/?mibextid=wwXIfr" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a></li>
+                            <li><a href="https://www.instagram.com/invites/contact/?igsh=1ffx71yis8wcc&utm_content=wxpctqk" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a></li>
+                            <li><a href="https://x.com/assuredfreight?s=11" target="_blank">
+                                <i class="fab fa-x-twitter"></i>
+                            </a></li>
+                            <li><a href="http://www.youtube.com/@AssuranceFreight" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a></li>
+                            <li><a href="https://www.linkedin.com/in/assurance-freight-13980b347/" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-3">
                     <div class="single_location">
                         <h3> <img src="img/icon/address.svg" alt=""> Location</h3>
-                        <p>Gala No. A5,
+                        <p>A5,
                             1st Floor,
                             Raj Industrial Estate,
                             Military Road,
@@ -324,13 +1430,12 @@
                                 Services
                             </h3>
                             <ul>
-                                <li><a href="#">Air Transportation</a></li>
-                                <li><a href="#">Ocean Freight</a></li>
-                                <li><a href="#">Ocean Cargo</a></li>
-                                <li><a href="#">Logistics</a></li>
-                                <li><a href="#">Warehouse Moving</a></li>
+                                <li>Freight Forwarding</li>
+                                <li>Supply Chain Management</li>
+                                <li>Last-Mile Delivery</li>
+                                <li>Customs Brokerage</li>
+                                <li>Inventory Management</li>
                             </ul>
-
                         </div>
                     </div>
                     <div class="col-xl-2 col-md-6 col-lg-2">
@@ -339,10 +1444,10 @@
                                 Company
                             </h3>
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#"> Testimonials</a></li>
-                                <li><a href="#"> Why Us?</a></li>
+                                <li>About Us</li>
+                                <li>Our Values</li>
+                                <li>Client Testimonials</li>
+                                <li>Why Choose Us?</li>
                             </ul>
                         </div>
                     </div>
@@ -352,13 +1457,14 @@
                                 Industries
                             </h3>
                             <ul>
-                                <li><a href="#">Chemicals</a></li>
-                                <li><a href="#">Automotive</a></li>
-                                <li><a href="#"> Consumer Goods</a></li>
-                                <li><a href="#">Life Science</a></li>
-                                <li><a href="#">Foreign Trade</a></li>
+                                <li>Retail and E-commerce</li>
+                                <li>Manufacturing</li>
+                                <li>Automotive Logistics</li>
+                                <li>Healthcare Supply Chain</li>
+                                <li>Food and Beverage Distribution</li>
                             </ul>
                         </div>
+
                     </div>
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="footer_widget">
@@ -370,7 +1476,9 @@
                                 <input type="email" name="email" placeholder="Enter your mail" required>
                                 <button type="submit">Subscribe</button>
                             </form>
-                            <p class="newsletter_text">thank you for visiting our website</p>
+                            <p class="newsletter_text">
+                                Stay connected with us and receive latest updates about our services and special offers.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -379,17 +1487,18 @@
     </footer>
     <!--/ footer end  -->
 
-  <!-- Modal -->
-  <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="serch_form">
-            <input type="text" placeholder="search" >
-            <button type="submit">search</button>
+    <!-- Modal -->
+    <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="serch_form">
+                    <input type="text" placeholder="search">
+                    <button type="submit">search</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
     <!-- JS here -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -423,8 +1532,368 @@
 
     <script src="js/main.js"></script>
 
+    <style>
+        .modern-quote-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: #FF4742;
+            color: #ffffff !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 71, 66, 0.2);
+            border: none;
+            min-width: 220px;
+        }
+
+        .modern-quote-btn i {
+            font-size: 18px;
+            margin-right: 8px;
+            color: #ffffff;
+        }
+
+        .modern-quote-btn:hover {
+            background: #ff3c37;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 71, 66, 0.3);
+        }
+    </style>
+    <!-- <a href="#" class="modern-quote-btn" onclick="openModal(event)">
+        <i class="fas fa-calculator"></i>
+        ASSURED QUOTE
+    </a> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Menu functionality
+            const menuBtn = document.querySelector('.nav-dropdown-btn');
+            const navDropdown = document.querySelector('.nav-dropdown-content');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                navDropdown.classList.toggle('show');
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('.nav-dropdown') && isMenuOpen) {
+                    isMenuOpen = false;
+                    navDropdown.classList.remove('show');
+                }
+            });
+
+            if (menuBtn && navDropdown) {
+                menuBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // Initialize service cards animations
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add animation on scroll
+            const services = document.querySelectorAll('.single_service');
+
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            services.forEach(service => {
+                service.style.opacity = '0';
+                service.style.transform = 'translateY(30px)';
+                service.style.transition = 'all 0.6s ease-out';
+                observer.observe(service);
+            });
+
+            // Add hover effect for service icons
+            services.forEach(service => {
+                const icon = service.querySelector('.service_icon');
+                service.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'rotateY(360deg)';
+                });
+                service.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'rotateY(0)';
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // Back to Top Button functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) { // Show button after 300px scroll
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <a href="https://wa.me/+919167524332" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <a href="#" onclick="openModal(event)" class="floating-contact">
+        <i class="fa fa-comments"></i>
+    </a>
+
+    <a href="#" class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Handle floating contact button click
+        document.querySelector('.floating-contact').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = 'index.html#estimate-form';
+        });
+    </script>
 
 
+    <script>
+        document.querySelector('.menu').addEventListener('click', function () {
+            document.querySelector('.nav-dropdown-content').classList.toggle('show');
+        });
+
+        // Close the dropdown if clicked outside
+        window.addEventListener('click', function (e) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelector('.menu').classList.remove('opened');
+                document.querySelector('.nav-dropdown-content').classList.remove('show');
+            }
+        });
+    </script>
+
+    <div class="modal-overlay" id="selectionModal">
+        <div class="modal-content">
+            <h2>Select an Option</h2>
+            <button onclick="navigateTo('about.html')">About</button>
+            <button onclick="navigateTo('service.html')">Service</button>
+            <button onclick="navigateTo('service_details.html')">Service Details</button>
+            <button onclick="navigateTo('contact.html')">Contact</button>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <script>
+        function openModal() {
+            document.getElementById('selectionModal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('selectionModal').style.display = 'none';
+        }
+        function navigateTo(page) {
+            closeModal();
+            window.location.href = page;
+        }
+    </script>
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 1001;
+        }
+    </style>
+    <script>
+        function openModal() {
+            try {
+                document.getElementById('selectionModal').style.display = 'block';
+            } catch (error) {
+                console.error('Error opening modal:', error);
+            }
+        }
+        function closeModal() {
+            try {
+                document.getElementById('selectionModal').style.display = 'none';
+            } catch (error) {
+                console.error('Error closing modal:', error);
+            }
+        }
+        function navigateTo(page) {
+            closeModal();
+            window.location.href = page;
+        }
+    </script>
+    <div class="modal-overlay" id="freightModal">
+        <div class="freight-modal">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="text-center">
+                <h2>Choose Your Freight Service</h2>
+                <p>Select the type of freight service that best suits your needs</p>
+            </div>
+            <div class="freight-options">
+                <a href="air-freight.html" class="freight-option">
+                    <i class="fas fa-plane"></i>
+                    <h4>Air Freight</h4>
+                    <p>Fast & Reliable Air Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="ocean-freight.html" class="freight-option">
+                    <i class="fas fa-ship"></i>
+                    <h4>Ocean Freight</h4>
+                    <p>Cost-Effective Sea Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="road-freight.html" class="freight-option">
+                    <i class="fas fa-truck"></i>
+                    <h4>Road Freight</h4>
+                    <p>Flexible Ground Transport</p>
+                    <span class="btn-text">Get Quote <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openModal(event) {
+            event.preventDefault();
+            document.getElementById('freightModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('freightModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('freightModal').addEventListener('click', function (event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+    <script>
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNavDropdown');
+            const menuButton = document.querySelector('.menu');
+            
+            mobileNav.classList.toggle('show');
+            menuButton.classList.toggle('opened');
+            
+            // Update aria-expanded
+            const isExpanded = menuButton.classList.contains('opened');
+            menuButton.setAttribute('aria-expanded', isExpanded);
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const mobileNav = document.getElementById('mobileNavDropdown');
+            const menuButton = document.querySelector('.menu');
+            
+            if (!e.target.closest('.nav-dropdown') && mobileNav.classList.contains('show')) {
+                mobileNav.classList.remove('show');
+                menuButton.classList.remove('opened');
+                menuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+    <style>
+        /* Mobile Header Styles */
+        @media (max-width: 991px) {
+            .mobile-header-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px 0;
+            }
+
+            .logo {
+                margin: 0;
+            }
+
+            .logo img {
+                max-height: 45px;
+                width: auto;
+            }
+
+            .mobile_menu {
+                margin: 0;
+            }
+
+            .nav-dropdown-content {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 200px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-dropdown-content.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .menu {
+                padding: 8px;
+                margin: 0;
+            }
+
+            .menu svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
 </body>
 
 </html>
